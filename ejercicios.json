@@ -1,0 +1,962 @@
+{
+  "modulos": [
+    {
+      "nombre": "Módulo 2 - Estructuras de Datos en Python",
+      "descripcion": "Configuración del entorno, estructuras de datos (strings, listas, tuplas, conjuntos y diccionarios)",
+      "temas": [
+        {
+          "nombre": "Strings (Cadenas)",
+          "teoria": "Los strings son secuencias de caracteres. Puedes concatenarlos, obtener su longitud, y usar métodos como upper(), lower(), split().",
+          "ejercicios": [
+            {"enunciado": "Crea una variable llamada 'saludo' con el texto 'Hola'.", "test": "saludo == 'Hola'"},
+            {"enunciado": "Crea una variable llamada 'nombre' con tu nombre y concaténala con 'Hola' en una variable 'mensaje'.", "test": "mensaje == 'Hola ' + nombre"},
+            {"enunciado": "Crea una variable 'frase' con 'python es divertido' y obtén su longitud en 'longitud'.", "test": "frase == 'python es divertido' and longitud == len(frase)"},
+            {"enunciado": "Convierte la variable 'frase' a mayúsculas en 'frase_mayus'.", "test": "frase_mayus == frase.upper()"},
+            {"enunciado": "Crea una variable 'palabras' con 'uno,dos,tres' y divídela en una lista llamada 'lista_palabras'.", "test": "palabras == 'uno,dos,tres' and lista_palabras == palabras.split(',')"},
+            {"enunciado": "Reemplaza la palabra 'divertido' por 'genial' en la variable 'frase' y guarda el resultado en 'nueva_frase'.", "test": "nueva_frase == frase.replace('divertido', 'genial')"},
+            {"enunciado": "Verifica si la palabra 'python' está en la variable 'frase' y guarda el resultado booleano en 'contiene_python'.", "test": "contiene_python == ('python' in frase)"},
+            {"enunciado": "Crea una variable 'texto' con espacios al principio y al final. Elimina los espacios y guarda el resultado en 'texto_limpio'.", "test": "texto_limpio == texto.strip()"},
+            {"enunciado": "Crea una función 'contar_letra' que reciba un string y una letra, y retorne cuántas veces aparece esa letra.", "test": "contar_letra('banana', 'a') == 3"},
+            {"enunciado": "Crea una función 'es_palindromo' que reciba un string y retorne True si es palíndromo (se lee igual al derecho y al revés), False si no.", "test": "es_palindromo('reconocer') == True and es_palindromo('python') == False"}
+          ]
+        },
+        {
+          "nombre": "Listas",
+          "teoria": "Las listas son colecciones ordenadas y mutables. Puedes agregar, quitar, modificar elementos y usar métodos como append(), remove(), sort().",
+          "ejercicios": [
+            {"enunciado": "Crea una lista llamada 'numeros' con los valores [1, 2, 3]", "test": "numeros == [1, 2, 3]"},
+            {"enunciado": "Agrega el número 4 al final de la lista 'numeros' usando append().", "test": "numeros[-1] == 4 and len(numeros) == 4"},
+            {"enunciado": "Elimina el primer elemento de la lista 'numeros' usando pop(0).", "test": "len(numeros) == 3 and 1 not in numeros"},
+            {"enunciado": "Crea una lista llamada 'frutas' con ['manzana', 'banana', 'naranja'] y elimina 'banana' de la lista.", "test": "frutas == ['manzana', 'naranja']"},
+            {"enunciado": "Crea una lista llamada 'temperaturas' con [25, 30, 15, 20] y ordénala de menor a mayor.", "test": "temperaturas == [15, 20, 25, 30]"},
+            {"enunciado": "Crea una lista llamada 'pares' con los números pares del 2 al 10 (inclusive) usando range().", "test": "pares == [2, 4, 6, 8, 10]"},
+            {"enunciado": "Crea una lista llamada 'cuadrados' con los cuadrados de los números del 1 al 5 usando comprensión de listas.", "test": "cuadrados == [1, 4, 9, 16, 25]"},
+            {"enunciado": "Crea una función 'sumar_lista' que reciba una lista de números y retorne la suma de sus elementos.", "test": "sumar_lista([1,2,3]) == 6 and sumar_lista([]) == 0"},
+            {"enunciado": "Crea una función 'invertir_lista' que reciba una lista y retorne la lista invertida.", "test": "invertir_lista([1,2,3]) == [3,2,1]"},
+            {"enunciado": "Crea una función 'eliminar_duplicados' que reciba una lista y retorne una nueva lista sin elementos duplicados (manteniendo el orden).", "test": "eliminar_duplicados([1,2,2,3,1,4]) == [1,2,3,4]"}
+          ]
+        },
+        {
+          "nombre": "Tuplas",
+          "teoria": "Las tuplas son colecciones ordenadas e inmutables. Una vez creadas, no puedes modificar sus elementos. Se usan para datos que no cambian.",
+          "ejercicios": [
+            {"enunciado": "Crea una tupla llamada 'coordenadas' con los valores (1, 2).", "test": "coordenadas == (1, 2) and isinstance(coordenadas, tuple)"},
+            {"enunciado": "Crea una tupla llamada 'colores' con ('rojo', 'verde', 'azul') y obtén el primer color en 'primer_color'.", "test": "colores == ('rojo', 'verde', 'azul') and primer_color == colores[0]"},
+            {"enunciado": "Crea una tupla llamada 'persona' con tu nombre y edad, y desempaqueta en 'nombre' y 'edad'.", "test": "isinstance(persona, tuple) and len(persona) == 2 and nombre == persona[0] and edad == persona[1]"},
+            {"enunciado": "Crea una tupla llamada 'numeros' con los valores del 1 al 5 usando tuple(range(...)).", "test": "numeros == (1, 2, 3, 4, 5)"},
+            {"enunciado": "Crea una función 'invertir_tupla' que reciba una tupla y retorne la tupla invertida.", "test": "invertir_tupla((1,2,3)) == (3,2,1)"},
+            {"enunciado": "Crea una función 'contar_elemento' que reciba una tupla y un elemento, y retorne cuántas veces aparece ese elemento.", "test": "contar_elemento((1,2,2,3),2) == 2"},
+            {"enunciado": "Crea una función 'concatenar_tuplas' que reciba dos tuplas y retorne una nueva tupla con todos los elementos.", "test": "concatenar_tuplas((1,2),(3,4)) == (1,2,3,4)"},
+            {"enunciado": "Crea una función 'maximo_tupla' que reciba una tupla de números y retorne el valor máximo.", "test": "maximo_tupla((1,5,3)) == 5"},
+            {"enunciado": "Crea una función 'buscar_indice' que reciba una tupla y un elemento, y retorne el índice de la primera aparición (o -1 si no está).", "test": "buscar_indice((1,2,3,2),2) == 1 and buscar_indice((1,2,3),5) == -1"},
+            {"enunciado": "Crea una función 'tupla_sin_duplicados' que reciba una tupla y retorne una nueva tupla sin elementos duplicados (manteniendo el orden).", "test": "tupla_sin_duplicados((1,2,2,3,1,4)) == (1,2,3,4)"}
+          ]
+        },
+        {
+          "nombre": "Conjuntos",
+          "teoria": "Los conjuntos son colecciones no ordenadas de elementos únicos. No permiten duplicados y son útiles para operaciones de conjunto como unión, intersección.",
+          "ejercicios": [
+            {"enunciado": "Crea un conjunto llamado 'vocales' con las letras 'a', 'e', 'i', 'o', 'u'.", "test": "vocales == {'a', 'e', 'i', 'o', 'u'} and isinstance(vocales, set)"},
+            {"enunciado": "Crea un conjunto llamado 'numeros' a partir de la lista [1, 2, 2, 3, 4, 4, 5].", "test": "numeros == {1,2,3,4,5}"},
+            {"enunciado": "Agrega el número 6 al conjunto 'numeros'.", "test": "6 in numeros"},
+            {"enunciado": "Elimina el número 2 del conjunto 'numeros'.", "test": "2 not in numeros"},
+            {"enunciado": "Crea dos conjuntos 'set1' y 'set2' y obtén su unión en 'union'.", "test": "union == set1.union(set2)"},
+            {"enunciado": "Obtén la intersección de 'set1' y 'set2' en 'interseccion'.", "test": "interseccion == set1.intersection(set2)"},
+            {"enunciado": "Crea una función 'diferencia_conjuntos' que reciba dos conjuntos y retorne la diferencia.", "test": "diferencia_conjuntos({1,2,3},{2,3}) == {1}"},
+            {"enunciado": "Crea una función 'es_subconjunto' que reciba dos conjuntos y retorne True si el primero es subconjunto del segundo.", "test": "es_subconjunto({1,2},{1,2,3}) == True and es_subconjunto({1,4},{1,2,3}) == False"},
+            {"enunciado": "Crea una función 'conjunto_sin_vocales' que reciba un string y retorne un conjunto con las letras que no son vocales.", "test": "conjunto_sin_vocales('hola') == set('hl')"},
+            {"enunciado": "Crea una función 'tamanio_conjunto' que reciba un conjunto y retorne su tamaño.", "test": "tamanio_conjunto({1,2,3}) == 3"}
+          ]
+        },
+        {
+          "nombre": "Diccionarios",
+          "teoria": "Los diccionarios almacenan pares clave-valor. Son útiles para representar datos estructurados y permiten acceso rápido por clave.",
+          "ejercicios": [
+            {"enunciado": "Crea un diccionario llamado 'persona' con las claves 'nombre' y 'edad'.", "test": "isinstance(persona, dict) and 'nombre' in persona and 'edad' in persona"},
+            {"enunciado": "Agrega la clave 'ciudad' con un valor a 'persona'.", "test": "'ciudad' in persona"},
+            {"enunciado": "Modifica el valor de 'edad' en el diccionario 'persona'.", "test": "persona['edad'] != None"},
+            {"enunciado": "Elimina la clave 'ciudad' del diccionario 'persona'.", "test": "'ciudad' not in persona"},
+            {"enunciado": "Crea una función 'obtener_claves' que reciba un diccionario y retorne una lista de sus claves.", "test": "set(obtener_claves({'a':1,'b':2})) == {'a','b'}"},
+            {"enunciado": "Crea una función 'obtener_valores' que reciba un diccionario y retorne una lista de sus valores.", "test": "set(obtener_valores({'a':1,'b':2})) == {1,2}"},
+            {"enunciado": "Crea una función 'invertir_diccionario' que reciba un diccionario y retorne uno nuevo con claves y valores invertidos.", "test": "invertir_diccionario({'a':1,'b':2}) == {1:'a',2:'b'}"},
+            {"enunciado": "Crea una función 'actualizar_diccionario' que reciba dos diccionarios y actualice el primero con el segundo.", "test": "d1={'a':1}; d2={'b':2}; actualizar_diccionario(d1,d2); d1['b']==2"},
+            {"enunciado": "Crea una función 'filtrar_diccionario' que reciba un diccionario y un valor, y retorne un nuevo diccionario solo con los pares cuyo valor sea mayor al valor dado.", "test": "filtrar_diccionario({'a':1,'b':3,'c':2},1) == {'b':3,'c':2}"},
+            {"enunciado": "Crea una función 'fusionar_diccionarios' que reciba dos diccionarios y retorne uno nuevo con todos los pares clave-valor (si hay claves repetidas, usa el valor del segundo diccionario).", "test": "fusionar_diccionarios({'a':1},{'a':2,'b':3}) == {'a':2,'b':3}"            }
+          ]
+        },
+        {
+          "nombre": "Módulos",
+          "teoria": "Los módulos permiten organizar código en archivos separados. Puedes importar funciones, clases y variables de otros módulos usando 'import' o 'from ... import'.",
+          "ejercicios": [
+            {
+              "enunciado": "Crea un módulo llamado 'matematicas' con funciones 'suma', 'resta', 'multiplicacion' y 'division'. Luego importa y usa la función 'suma'.",
+              "test": "import matematicas; matematicas.suma(5, 3) == 8"
+            },
+            {
+              "enunciado": "Crea un módulo llamado 'utilidades' con una función 'formatear_nombre' que reciba nombre y apellido y retorne 'Apellido, Nombre'.",
+              "test": "from utilidades import formatear_nombre; formatear_nombre('Juan', 'Pérez') == 'Pérez, Juan'"
+            },
+            {
+              "enunciado": "Crea un módulo llamado 'validaciones' con funciones 'es_email_valido' y 'es_telefono_valido' que validen formatos básicos.",
+              "test": "from validaciones import es_email_valido, es_telefono_valido; es_email_valido('test@test.com') == True and es_telefono_valido('123-456-7890') == True"
+            },
+            {
+              "enunciado": "Crea un módulo llamado 'conversiones' con funciones para convertir entre diferentes unidades (metros a pies, kilogramos a libras, etc.).",
+              "test": "from conversiones import metros_a_pies, kg_a_libras; abs(metros_a_pies(1) - 3.28084) < 0.01 and abs(kg_a_libras(1) - 2.20462) < 0.01"
+            },
+            {
+              "enunciado": "Crea un módulo llamado 'fechas' con funciones 'es_fecha_valida', 'calcular_edad' y 'dias_entre_fechas'.",
+              "test": "from fechas import es_fecha_valida, calcular_edad; es_fecha_valida('2023-12-25') == True and calcular_edad('1990-01-01') > 0"
+            },
+            {
+              "enunciado": "Crea un módulo llamado 'archivos' con funciones 'leer_archivo', 'escribir_archivo' y 'copiar_archivo'.",
+              "test": "from archivos import escribir_archivo, leer_archivo; escribir_archivo('test.txt', 'hola'); leer_archivo('test.txt') == 'hola'"
+            },
+            {
+              "enunciado": "Crea un módulo llamado 'estadisticas' con funciones 'media', 'mediana', 'moda' y 'desviacion_estandar'.",
+              "test": "from estadisticas import media, mediana; media([1,2,3,4,5]) == 3.0 and mediana([1,2,3,4,5]) == 3"
+            },
+            {
+              "enunciado": "Crea un módulo llamado 'crypto' con funciones 'encriptar_texto', 'desencriptar_texto' usando un algoritmo simple de sustitución.",
+              "test": "from crypto import encriptar_texto, desencriptar_texto; texto = 'hola'; encriptado = encriptar_texto(texto); desencriptar_texto(encriptado) == texto"
+            },
+            {
+              "enunciado": "Crea un módulo llamado 'red' con funciones 'validar_ip', 'validar_url' y 'extraer_dominio'.",
+              "test": "from red import validar_ip, extraer_dominio; validar_ip('192.168.1.1') == True and extraer_dominio('https://www.ejemplo.com/path') == 'ejemplo.com'"
+            },
+            {
+              "enunciado": "Crea un módulo llamado 'configuracion' con una clase 'Config' que maneje configuraciones de aplicación con métodos 'cargar' y 'guardar'.",
+              "test": "from configuracion import Config; config = Config(); config.cargar('test_config.json'); isinstance(config, Config)"
+            }
+          ]
+        },
+        {
+          "nombre": "Paquetes",
+          "teoria": "Los paquetes son directorios que contienen módulos y un archivo __init__.py. Permiten organizar módulos relacionados en una estructura jerárquica.",
+          "ejercicios": [
+            {
+              "enunciado": "Crea un paquete llamado 'calculadora' con módulos 'basica' y 'avanzada'. El módulo 'basica' debe tener operaciones simples y 'avanzada' operaciones complejas.",
+              "test": "from calculadora.basica import suma, resta; from calculadora.avanzada import potencia; suma(5,3) == 8 and potencia(2,3) == 8"
+            },
+            {
+              "enunciado": "Crea un paquete llamado 'base_datos' con módulos 'conexion', 'consultas' y 'modelos'. El módulo 'conexion' debe simular una conexión a base de datos.",
+              "test": "from base_datos.conexion import crear_conexion; from base_datos.consultas import ejecutar_consulta; conn = crear_conexion(); isinstance(conn, dict)"
+            },
+            {
+              "enunciado": "Crea un paquete llamado 'web' con módulos 'servidor', 'cliente' y 'utilidades'. El módulo 'servidor' debe simular un servidor web básico.",
+              "test": "from web.servidor import iniciar_servidor; from web.cliente import hacer_peticion; servidor = iniciar_servidor(8000); isinstance(servidor, dict)"
+            },
+            {
+              "enunciado": "Crea un paquete llamado 'graficos' con módulos 'lineas', 'barras' y 'pastel'. Cada módulo debe tener funciones para crear diferentes tipos de gráficos.",
+              "test": "from graficos.lineas import crear_linea; from graficos.barras import crear_barra; linea = crear_linea([1,2,3], [4,5,6]); isinstance(linea, dict)"
+            },
+            {
+              "enunciado": "Crea un paquete llamado 'reportes' con módulos 'generador', 'formato' y 'exportador'. El módulo 'generador' debe crear reportes básicos.",
+              "test": "from reportes.generador import crear_reporte; from reportes.formato import formatear_reporte; reporte = crear_reporte('datos'); isinstance(reporte, dict)"
+            },
+            {
+              "enunciado": "Crea un paquete llamado 'autenticacion' con módulos 'login', 'registro' y 'sesion'. El módulo 'login' debe validar credenciales básicas.",
+              "test": "from autenticacion.login import validar_usuario; from autenticacion.registro import crear_usuario; resultado = validar_usuario('admin', 'password'); isinstance(resultado, bool)"
+            },
+            {
+              "enunciado": "Crea un paquete llamado 'api' con módulos 'endpoints', 'middleware' y 'respuestas'. El módulo 'endpoints' debe definir rutas básicas de API.",
+              "test": "from api.endpoints import definir_ruta; from api.respuestas import crear_respuesta; ruta = definir_ruta('/usuarios', 'GET'); isinstance(ruta, dict)"
+            },
+            {
+              "enunciado": "Crea un paquete llamado 'testing' con módulos 'unittest', 'integration' y 'mocks'. El módulo 'unittest' debe tener funciones para testing básico.",
+              "test": "from testing.unittest import ejecutar_test; from testing.mocks import crear_mock; resultado = ejecutar_test(lambda: True); resultado == True"
+            },
+            {
+              "enunciado": "Crea un paquete llamado 'logging' con módulos 'logger', 'handlers' y 'formatters'. El módulo 'logger' debe configurar logging básico.",
+              "test": "from logging.logger import configurar_logger; from logging.handlers import crear_handler; logger = configurar_logger('test'); isinstance(logger, dict)"
+            },
+            {
+              "enunciado": "Crea un paquete llamado 'cache' con módulos 'memoria', 'redis' y 'disco'. El módulo 'memoria' debe implementar cache en memoria.",
+              "test": "from cache.memoria import CacheMemoria; from cache.redis import CacheRedis; cache_mem = CacheMemoria(); cache_mem.set('key', 'value'); cache_mem.get('key') == 'value'"
+            }
+          ]
+        },
+        {
+          "nombre": "Manejo de Excepciones Avanzado",
+          "teoria": "El manejo avanzado de excepciones incluye excepciones personalizadas, manejo de múltiples tipos de excepciones, y uso de 'finally' y 'else'.",
+          "ejercicios": [
+            {
+              "enunciado": "Crea una excepción personalizada llamada 'ValorInvalidoError' que se lance cuando un valor no esté en el rango esperado.",
+              "test": "class ValorInvalidoError(Exception): pass; try: raise ValorInvalidoError('Valor fuera de rango'); except ValorInvalidoError: pass"
+            },
+            {
+              "enunciado": "Crea una función llamada 'procesar_datos_seguro' que maneje múltiples tipos de excepciones (ValueError, TypeError, IndexError) con mensajes específicos.",
+              "test": "procesar_datos_seguro([1,2,3], 1) == 2 and procesar_datos_seguro([1,2,3], 'a') == 'Error: Índice debe ser un número'"
+            },
+            {
+              "enunciado": "Crea una función llamada 'conectar_base_datos' que use 'try/except/finally' para asegurar que la conexión se cierre correctamente.",
+              "test": "conexion = conectar_base_datos('test.db'); isinstance(conexion, dict) and 'cerrada' in conexion"
+            },
+            {
+              "enunciado": "Crea una función llamada 'validar_formulario' que lance excepciones personalizadas para diferentes tipos de errores de validación.",
+              "test": "try: validar_formulario({'nombre': '', 'edad': -5}); except Exception as e: isinstance(str(e), str)"
+            },
+            {
+              "enunciado": "Crea una función llamada 'ejecutar_comando' que use 'try/except/else' para ejecutar un comando y manejar diferentes tipos de errores.",
+              "test": "resultado = ejecutar_comando('ls'); isinstance(resultado, (str, dict))"
+            },
+            {
+              "enunciado": "Crea una función llamada 'procesar_archivo' que maneje excepciones específicas para archivos (FileNotFoundError, PermissionError, IOError).",
+              "test": "procesar_archivo('archivo_inexistente.txt') == 'Error: Archivo no encontrado'"
+            },
+            {
+              "enunciado": "Crea una función llamada 'validar_red' que maneje excepciones de red (ConnectionError, TimeoutError) y reintente la conexión.",
+              "test": "resultado = validar_red('http://ejemplo.com'); isinstance(resultado, (str, dict))"
+            },
+            {
+              "enunciado": "Crea una función llamada 'procesar_json' que maneje excepciones específicas de JSON (JSONDecodeError, KeyError) y proporcione valores por defecto.",
+              "test": "procesar_json('{\"nombre\": \"Juan\", \"edad\": 25}') == {'nombre': 'Juan', 'edad': 25} and procesar_json('json_invalido') == {}"
+            },
+            {
+              "enunciado": "Crea una función llamada 'ejecutar_transaccion' que use 'try/except/finally' para simular una transacción bancaria con rollback en caso de error.",
+              "test": "resultado = ejecutar_transaccion(100, 'deposito'); isinstance(resultado, dict) and 'estado' in resultado"
+            },
+            {
+              "enunciado": "Crea una función llamada 'validar_api' que maneje excepciones de API (HTTPError, URLError) y proporcione respuestas de error estructuradas.",
+              "test": "respuesta = validar_api('https://api.ejemplo.com/datos'); isinstance(respuesta, dict) and 'status' in respuesta"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nombre": "Módulo 3 - Funciones de Python",
+      "descripcion": "Funciones, recursión, documentación, funciones Lambdas, funciones de orden superior, closure functions, decoradores, módulos, paquetes y manejo de excepciones",
+      "temas": [
+        {
+          "nombre": "Funciones Básicas",
+          "teoria": "Las funciones agrupan código reutilizable. Pueden recibir parámetros y devolver valores. Usa 'def' para definirlas.",
+          "ejercicios": [
+            {
+              "enunciado": "Crea una función llamada 'saludar' que reciba un parámetro 'nombre' y retorne 'Hola, [nombre]'.",
+              "test": "saludar('Juan') == 'Hola, Juan'"
+            },
+            {
+              "enunciado": "Crea una función llamada 'suma' que reciba dos parámetros y retorne su suma.",
+              "test": "suma(5, 3) == 8 and suma(10, 20) == 30"
+            },
+            {
+              "enunciado": "Crea una función llamada 'es_mayor_edad' que reciba una edad y retorne True si es mayor o igual a 18, False en caso contrario.",
+              "test": "es_mayor_edad(20) == True and es_mayor_edad(16) == False"
+            },
+            {
+              "enunciado": "Crea una función llamada 'calcular_area_rectangulo' que reciba base y altura, y retorne el área del rectángulo.",
+              "test": "calcular_area_rectangulo(5, 3) == 15 and calcular_area_rectangulo(10, 2) == 20"
+            },
+            {
+              "enunciado": "Crea una función llamada 'es_par' que reciba un número y retorne True si es par, False si es impar.",
+              "test": "es_par(4) == True and es_par(7) == False and es_par(0) == True"
+            },
+            {
+              "enunciado": "Crea una función llamada 'obtener_maximo' que reciba tres números y retorne el mayor de ellos.",
+              "test": "obtener_maximo(1, 5, 3) == 5 and obtener_maximo(10, 10, 5) == 10"
+            },
+            {
+              "enunciado": "Crea una función llamada 'calcular_promedio' que reciba una lista de números y retorne su promedio.",
+              "test": "calcular_promedio([1, 2, 3, 4, 5]) == 3.0 and calcular_promedio([10, 20]) == 15.0"
+            },
+            {
+              "enunciado": "Crea una función llamada 'contar_vocales' que reciba un string y retorne el número de vocales que contiene.",
+              "test": "contar_vocales('hola') == 2 and contar_vocales('python') == 1 and contar_vocales('aeiou') == 5"
+            },
+            {
+              "enunciado": "Crea una función llamada 'es_primo' que reciba un número y retorne True si es primo, False en caso contrario.",
+              "test": "es_primo(2) == True and es_primo(7) == True and es_primo(4) == False and es_primo(1) == False"
+            },
+            {
+              "enunciado": "Crea una función llamada 'generar_fibonacci' que reciba un número n y retorne una lista con los primeros n números de la secuencia de Fibonacci.",
+              "test": "generar_fibonacci(5) == [0, 1, 1, 2, 3] and generar_fibonacci(8) == [0, 1, 1, 2, 3, 5, 8, 13]"
+            }
+          ]
+        },
+        {
+          "nombre": "Recursión",
+          "teoria": "La recursión es cuando una función se llama a sí misma. Es útil para problemas que se pueden dividir en subproblemas más pequeños.",
+          "ejercicios": [
+            {
+              "enunciado": "Crea una función recursiva llamada 'factorial' que calcule el factorial de un número n (n! = n * (n-1)!). El factorial de 0 es 1.",
+              "test": "factorial(5) == 120 and factorial(0) == 1"
+            },
+            {
+              "enunciado": "Crea una función recursiva llamada 'fibonacci' que calcule el n-ésimo número de Fibonacci (cada número es la suma de los dos anteriores).",
+              "test": "fibonacci(6) == 8 and fibonacci(0) == 0 and fibonacci(1) == 1"
+            },
+            {
+              "enunciado": "Crea una función recursiva llamada 'suma_digitos' que reciba un número y retorne la suma de sus dígitos.",
+              "test": "suma_digitos(123) == 6 and suma_digitos(999) == 27 and suma_digitos(0) == 0"
+            },
+            {
+              "enunciado": "Crea una función recursiva llamada 'invertir_numero' que reciba un número y retorne el número invertido.",
+              "test": "invertir_numero(123) == 321 and invertir_numero(1000) == 1 and invertir_numero(0) == 0"
+            },
+            {
+              "enunciado": "Crea una función recursiva llamada 'mcd' que calcule el máximo común divisor de dos números usando el algoritmo de Euclides.",
+              "test": "mcd(48, 18) == 6 and mcd(12, 8) == 4 and mcd(7, 13) == 1"
+            },
+            {
+              "enunciado": "Crea una función recursiva llamada 'potencia' que calcule x elevado a n (x^n).",
+              "test": "potencia(2, 3) == 8 and potencia(5, 0) == 1 and potencia(3, 4) == 81"
+            },
+            {
+              "enunciado": "Crea una función recursiva llamada 'contar_ocurrencias' que reciba una lista y un elemento, y retorne cuántas veces aparece ese elemento.",
+              "test": "contar_ocurrencias([1,2,2,3,2], 2) == 3 and contar_ocurrencias([1,2,3], 5) == 0"
+            },
+            {
+              "enunciado": "Crea una función recursiva llamada 'es_palindromo' que reciba un string y retorne True si es palíndromo, False en caso contrario.",
+              "test": "es_palindromo('ana') == True and es_palindromo('python') == False and es_palindromo('') == True"
+            },
+            {
+              "enunciado": "Crea una función recursiva llamada 'generar_combinaciones' que reciba una lista y un número k, y retorne todas las combinaciones de k elementos de la lista.",
+              "test": "len(generar_combinaciones([1,2,3], 2)) == 3 and len(generar_combinaciones([1,2,3,4], 3)) == 4"
+            },
+            {
+              "enunciado": "Crea una función recursiva llamada 'torres_hanoi' que resuelva el problema de las Torres de Hanoi para n discos, retornando una lista de movimientos.",
+              "test": "movimientos = torres_hanoi(3); len(movimientos) == 7 and isinstance(movimientos, list)"
+            }
+          ]
+        },
+        {
+          "nombre": "Funciones Lambda",
+          "teoria": "Las funciones lambda son funciones anónimas de una sola línea. Se usan para operaciones simples y como argumentos de otras funciones.",
+          "ejercicios": [
+            {
+              "enunciado": "Crea una función lambda llamada 'cuadrado' que reciba un número y retorne su cuadrado.",
+              "test": "cuadrado(5) == 25"
+            },
+            {
+              "enunciado": "Crea una función lambda llamada 'es_par' que reciba un número y retorne True si es par, False si es impar.",
+              "test": "es_par(4) == True and es_par(7) == False"
+            },
+            {
+              "enunciado": "Crea una función lambda llamada 'multiplicar' que reciba dos números y retorne su producto.",
+              "test": "multiplicar(3, 4) == 12"
+            },
+            {
+              "enunciado": "Crea una función lambda llamada 'dividir' que reciba dos números y retorne su división.",
+              "test": "dividir(10, 2) == 5.0 and dividir(7, 2) == 3.5"
+            },
+            {
+              "enunciado": "Crea una función lambda llamada 'es_mayor_que' que reciba dos números y retorne True si el primero es mayor que el segundo.",
+              "test": "es_mayor_que(5, 3) == True and es_mayor_que(2, 8) == False"
+            },
+            {
+              "enunciado": "Crea una función lambda llamada 'longitud_string' que reciba un string y retorne su longitud.",
+              "test": "longitud_string('hola') == 4 and longitud_string('python') == 6"
+            },
+            {
+              "enunciado": "Crea una función lambda llamada 'es_vocal' que reciba un carácter y retorne True si es vocal, False en caso contrario.",
+              "test": "es_vocal('a') == True and es_vocal('b') == False and es_vocal('E') == True"
+            },
+            {
+              "enunciado": "Crea una función lambda llamada 'concatenar' que reciba dos strings y retorne su concatenación.",
+              "test": "concatenar('hola', 'mundo') == 'holamundo' and concatenar('python', '3') == 'python3'"
+            },
+            {
+              "enunciado": "Crea una función lambda llamada 'es_positivo' que reciba un número y retorne True si es positivo, False si es negativo o cero.",
+              "test": "es_positivo(5) == True and es_positivo(-3) == False and es_positivo(0) == False"
+            },
+            {
+              "enunciado": "Crea una función lambda llamada 'calcular_area_circulo' que reciba el radio y retorne el área del círculo (π * r²). Usa 3.14159 como aproximación de π.",
+              "test": "abs(calcular_area_circulo(1) - 3.14159) < 0.01 and abs(calcular_area_circulo(2) - 12.56636) < 0.01"
+            }
+          ]
+        },
+        {
+          "nombre": "Manejo de Excepciones",
+          "teoria": "El manejo de excepciones permite controlar errores en tiempo de ejecución. Usa try/except para capturar y manejar errores.",
+          "ejercicios": [
+            {
+              "enunciado": "Crea una función llamada 'dividir_seguro' que reciba dos números y retorne su división. Si hay división por cero, retorna 'Error: División por cero'.",
+              "test": "dividir_seguro(10, 2) == 5.0 and dividir_seguro(10, 0) == 'Error: División por cero'"
+            },
+            {
+              "enunciado": "Crea una función llamada 'convertir_a_entero' que reciba un texto y retorne el número entero. Si no se puede convertir, retorna 'Error: No es un número válido'.",
+              "test": "convertir_a_entero('123') == 123 and convertir_a_entero('abc') == 'Error: No es un número válido'"
+            },
+            {
+              "enunciado": "Crea una función llamada 'acceder_lista' que reciba una lista y un índice, y retorne el elemento en esa posición. Si el índice no existe, retorna 'Error: Índice fuera de rango'.",
+              "test": "acceder_lista([1,2,3], 1) == 2 and acceder_lista([1,2,3], 5) == 'Error: Índice fuera de rango'"
+            },
+            {
+              "enunciado": "Crea una función llamada 'convertir_a_float' que reciba un texto y retorne el número decimal. Si no se puede convertir, retorna 'Error: No es un número decimal válido'.",
+              "test": "convertir_a_float('3.14') == 3.14 and convertir_a_float('abc') == 'Error: No es un número decimal válido'"
+            },
+            {
+              "enunciado": "Crea una función llamada 'abrir_archivo' que reciba un nombre de archivo y retorne su contenido. Si el archivo no existe, retorna 'Error: Archivo no encontrado'.",
+              "test": "abrir_archivo('archivo_inexistente.txt') == 'Error: Archivo no encontrado'"
+            },
+            {
+              "enunciado": "Crea una función llamada 'calcular_raiz' que reciba un número y retorne su raíz cuadrada. Si el número es negativo, retorna 'Error: No se puede calcular raíz de número negativo'.",
+              "test": "calcular_raiz(4) == 2.0 and calcular_raiz(-1) == 'Error: No se puede calcular raíz de número negativo'"
+            },
+            {
+              "enunciado": "Crea una función llamada 'acceder_diccionario' que reciba un diccionario y una clave, y retorne el valor. Si la clave no existe, retorna 'Error: Clave no encontrada'.",
+              "test": "acceder_diccionario({'a':1,'b':2}, 'a') == 1 and acceder_diccionario({'a':1}, 'c') == 'Error: Clave no encontrada'"
+            },
+            {
+              "enunciado": "Crea una función llamada 'convertir_lista' que reciba un texto y retorne una lista. Si el texto no representa una lista válida, retorna 'Error: Formato de lista inválido'.",
+              "test": "convertir_lista('[1,2,3]') == [1,2,3] and convertir_lista('texto') == 'Error: Formato de lista inválido'"
+            },
+            {
+              "enunciado": "Crea una función llamada 'validar_edad' que reciba una edad y retorne True si es válida (entre 0 y 120), False en caso contrario. Maneja excepciones si la entrada no es un número.",
+              "test": "validar_edad(25) == True and validar_edad(150) == False and validar_edad('abc') == False"
+            },
+            {
+              "enunciado": "Crea una función llamada 'procesar_datos' que reciba una lista de datos y retorne la suma de todos los números. Si algún elemento no es número, lo ignora y continúa procesando.",
+              "test": "procesar_datos([1,2,'a',3,4]) == 10 and procesar_datos(['a','b','c']) == 0"
+            }
+          ]
+        },
+        {
+          "nombre": "Documentación",
+          "teoria": "La documentación de funciones es esencial para el mantenimiento del código. Usa docstrings (triple comillas) para documentar el propósito, parámetros y valores de retorno.",
+          "ejercicios": [
+            {
+              "enunciado": "Crea una función llamada 'calcular_area_triangulo' con documentación completa que explique qué hace, qué parámetros recibe y qué retorna.",
+              "test": "calcular_area_triangulo(5, 3) == 7.5 and 'base' in calcular_area_triangulo.__doc__"
+            },
+            {
+              "enunciado": "Crea una función llamada 'es_anagrama' con documentación que explique si dos palabras son anagramas (mismas letras en diferente orden).",
+              "test": "es_anagrama('roma', 'amor') == True and es_anagrama('python', 'java') == False and 'anagrama' in es_anagrama.__doc__"
+            },
+            {
+              "enunciado": "Crea una función llamada 'generar_password' con documentación que genere una contraseña aleatoria de longitud especificada.",
+              "test": "len(generar_password(8)) == 8 and len(generar_password(12)) == 12 and 'password' in generar_password.__doc__"
+            },
+            {
+              "enunciado": "Crea una función llamada 'validar_email' con documentación que verifique si un email tiene formato válido.",
+              "test": "validar_email('usuario@dominio.com') == True and validar_email('email_invalido') == False and 'email' in validar_email.__doc__"
+            },
+            {
+              "enunciado": "Crea una función llamada 'calcular_hipotenusa' con documentación que calcule la hipotenusa de un triángulo rectángulo usando el teorema de Pitágoras.",
+              "test": "calcular_hipotenusa(3, 4) == 5.0 and 'hipotenusa' in calcular_hipotenusa.__doc__"
+            },
+            {
+              "enunciado": "Crea una función llamada 'convertir_temperatura' con documentación que convierta entre Celsius y Fahrenheit.",
+              "test": "convertir_temperatura(0, 'C_to_F') == 32.0 and convertir_temperatura(212, 'F_to_C') == 100.0 and 'temperatura' in convertir_temperatura.__doc__"
+            },
+            {
+              "enunciado": "Crea una función llamada 'encontrar_primos' con documentación que encuentre todos los números primos hasta un límite dado.",
+              "test": "encontrar_primos(10) == [2,3,5,7] and 'primos' in encontrar_primos.__doc__"
+            },
+            {
+              "enunciado": "Crea una función llamada 'calcular_factorial_iterativo' con documentación que calcule el factorial de forma iterativa.",
+              "test": "calcular_factorial_iterativo(5) == 120 and 'factorial' in calcular_factorial_iterativo.__doc__"
+            },
+            {
+              "enunciado": "Crea una función llamada 'ordenar_lista' con documentación que ordene una lista usando el algoritmo de burbuja.",
+              "test": "ordenar_lista([3,1,4,1,5]) == [1,1,3,4,5] and 'ordenar' in ordenar_lista.__doc__"
+            },
+            {
+              "enunciado": "Crea una función llamada 'buscar_binaria' con documentación que implemente búsqueda binaria en una lista ordenada.",
+              "test": "buscar_binaria([1,2,3,4,5], 3) == 2 and buscar_binaria([1,2,3,4,5], 6) == -1 and 'binaria' in buscar_binaria.__doc__"
+            }
+          ]
+        },
+        {
+          "nombre": "Funciones de Orden Superior",
+          "teoria": "Las funciones de orden superior son funciones que reciben otras funciones como parámetros o retornan funciones. Son fundamentales en programación funcional.",
+          "ejercicios": [
+            {
+              "enunciado": "Crea una función llamada 'aplicar_funcion' que reciba una función y una lista, y retorne una nueva lista con la función aplicada a cada elemento.",
+              "test": "aplicar_funcion(lambda x: x*2, [1,2,3]) == [2,4,6] and aplicar_funcion(lambda x: x**2, [1,2,3]) == [1,4,9]"
+            },
+            {
+              "enunciado": "Crea una función llamada 'filtrar_lista' que reciba una función de condición y una lista, y retorne solo los elementos que cumplan la condición.",
+              "test": "filtrar_lista(lambda x: x > 0, [-1,0,1,2,-3]) == [1,2] and filtrar_lista(lambda x: len(x) > 3, ['a','ab','abc','abcd']) == ['abcd']"
+            },
+            {
+              "enunciado": "Crea una función llamada 'reducir_lista' que reciba una función, una lista y un valor inicial, y retorne el resultado de aplicar la función acumulativamente.",
+              "test": "reducir_lista(lambda x,y: x+y, [1,2,3,4], 0) == 10 and reducir_lista(lambda x,y: x*y, [1,2,3,4], 1) == 24"
+            },
+            {
+              "enunciado": "Crea una función llamada 'componer_funciones' que reciba dos funciones f y g, y retorne una nueva función que aplique f(g(x)).",
+              "test": "f = lambda x: x*2; g = lambda x: x+1; h = componer_funciones(f,g); h(3) == 8"
+            },
+            {
+              "enunciado": "Crea una función llamada 'mapear_diccionario' que reciba una función y un diccionario, y retorne un nuevo diccionario con la función aplicada a cada valor.",
+              "test": "mapear_diccionario(lambda x: x*2, {'a':1,'b':2,'c':3}) == {'a':2,'b':4,'c':6}"
+            },
+            {
+              "enunciado": "Crea una función llamada 'filtrar_diccionario' que reciba una función de condición y un diccionario, y retorne solo los pares clave-valor que cumplan la condición.",
+              "test": "filtrar_diccionario(lambda x: x > 2, {'a':1,'b':3,'c':2,'d':4}) == {'b':3,'d':4}"
+            },
+            {
+              "enunciado": "Crea una función llamada 'aplicar_funcion_condicional' que reciba una función, una condición y una lista, y aplique la función solo a los elementos que cumplan la condición.",
+              "test": "aplicar_funcion_condicional(lambda x: x*2, lambda x: x > 0, [-1,0,1,2,-3]) == [-1,0,2,4,-3]"
+            },
+            {
+              "enunciado": "Crea una función llamada 'crear_transformador' que reciba una lista de funciones y retorne una función que las aplique en secuencia.",
+              "test": "f1 = lambda x: x+1; f2 = lambda x: x*2; f3 = lambda x: x**2; t = crear_transformador([f1,f2,f3]); t(2) == 36"
+            },
+            {
+              "enunciado": "Crea una función llamada 'aplicar_funcion_n_veces' que reciba una función, un valor inicial y un número n, y aplique la función n veces al valor inicial.",
+              "test": "aplicar_funcion_n_veces(lambda x: x*2, 1, 3) == 8 and aplicar_funcion_n_veces(lambda x: x+1, 0, 5) == 5"
+            },
+            {
+              "enunciado": "Crea una función llamada 'crear_validador' que reciba una lista de funciones de validación y retorne una función que valide si un valor cumple todas las condiciones.",
+              "test": "v1 = lambda x: x > 0; v2 = lambda x: x < 100; v3 = lambda x: isinstance(x, int); validador = crear_validador([v1,v2,v3]); validador(50) == True and validador(-1) == False"
+            }
+          ]
+        },
+        {
+          "nombre": "Closure Functions",
+          "teoria": "Las closure functions son funciones que capturan variables de su entorno (scope) y las mantienen en memoria. Son útiles para crear funciones con estado.",
+          "ejercicios": [
+            {
+              "enunciado": "Crea una función llamada 'crear_contador' que retorne una función que mantenga un contador interno y lo incremente cada vez que se llame.",
+              "test": "contador = crear_contador(); contador() == 1; contador() == 2; contador() == 3"
+            },
+            {
+              "enunciado": "Crea una función llamada 'crear_acumulador' que retorne una función que mantenga una suma acumulada de todos los valores que reciba.",
+              "test": "acumulador = crear_acumulador(); acumulador(5) == 5; acumulador(3) == 8; acumulador(10) == 18"
+            },
+            {
+              "enunciado": "Crea una función llamada 'crear_multiplicador' que reciba un factor y retorne una función que multiplique cualquier número por ese factor.",
+              "test": "duplicar = crear_multiplicador(2); triplicar = crear_multiplicador(3); duplicar(5) == 10 and triplicar(4) == 12"
+            },
+            {
+              "enunciado": "Crea una función llamada 'crear_potenciador' que reciba un exponente y retorne una función que eleve cualquier número a ese exponente.",
+              "test": "cuadrado = crear_potenciador(2); cubo = crear_potenciador(3); cuadrado(4) == 16 and cubo(3) == 27"
+            },
+            {
+              "enunciado": "Crea una función llamada 'crear_filtro' que reciba una condición y retorne una función que mantenga una lista de elementos que cumplan esa condición.",
+              "test": "filtro_pares = crear_filtro(lambda x: x % 2 == 0); filtro_pares(1); filtro_pares(2); filtro_pares(3); filtro_pares(4); len(filtro_pares()) == 2"
+            },
+            {
+              "enunciado": "Crea una función llamada 'crear_calculadora' que retorne un diccionario con funciones para sumar, restar, multiplicar y dividir, manteniendo un valor acumulado.",
+              "test": "calc = crear_calculadora(); calc['sumar'](5); calc['multiplicar'](3); calc['obtener_valor']() == 15"
+            },
+            {
+              "enunciado": "Crea una función llamada 'crear_historial' que retorne una función que mantenga un historial de las últimas n operaciones realizadas.",
+              "test": "historial = crear_historial(3); historial('suma', 5); historial('resta', 2); historial('multiplicacion', 3); len(historial()) == 3"
+            },
+            {
+              "enunciado": "Crea una función llamada 'crear_validador_personalizado' que reciba reglas de validación y retorne una función que valide datos según esas reglas.",
+              "test": "validador = crear_validador_personalizado(['mayor_que_0', 'menor_que_100']); validador(50) == True and validador(150) == False"
+            },
+            {
+              "enunciado": "Crea una función llamada 'crear_transformador_secuencial' que retorne una función que aplique transformaciones en secuencia y mantenga el resultado.",
+              "test": "transformador = crear_transformador_secuencial(); transformador(lambda x: x*2); transformador(lambda x: x+1); transformador(5) == 11"
+            },
+            {
+              "enunciado": "Crea una función llamada 'crear_cache' que retorne una función que cachee resultados de operaciones costosas para evitar recálculos.",
+              "test": "cache = crear_cache(); cache(lambda x: x**2, 5) == 25; cache(lambda x: x**2, 5) == 25; len(cache()) == 1"
+            }
+          ]
+        },
+        {
+          "nombre": "Decoradores",
+          "teoria": "Los decoradores son funciones que modifican el comportamiento de otras funciones. Se usan con la sintaxis @decorador y son útiles para logging, validación, caching, etc.",
+          "ejercicios": [
+            {
+              "enunciado": "Crea un decorador llamado 'medir_tiempo' que mida el tiempo de ejecución de una función y lo imprima.",
+              "test": "import time; @medir_tiempo; def funcion_lenta(): time.sleep(0.1); resultado = funcion_lenta(); isinstance(resultado, (int, float, str))"
+            },
+            {
+              "enunciado": "Crea un decorador llamado 'validar_argumentos' que valide que los argumentos de una función sean números positivos.",
+              "test": "@validar_argumentos; def suma_positiva(a, b): return a + b; suma_positiva(5, 3) == 8 and suma_positiva(-1, 2) == 'Error: Argumentos deben ser positivos'"
+            },
+            {
+              "enunciado": "Crea un decorador llamado 'cache_resultado' que cachee el resultado de una función para evitar recálculos con los mismos argumentos.",
+              "test": "@cache_resultado; def factorial(n): return 1 if n <= 1 else n * factorial(n-1); factorial(5) == 120; factorial(5) == 120"
+            },
+            {
+              "enunciado": "Crea un decorador llamado 'reintentar' que reintente la ejecución de una función hasta 3 veces si falla.",
+              "test": "contador = 0; @reintentar; def funcion_inestable(): global contador; contador += 1; if contador < 3: raise Exception(); return 'exito'; funcion_inestable() == 'exito'"
+            },
+            {
+              "enunciado": "Crea un decorador llamado 'log_funcion' que registre el nombre de la función, sus argumentos y el resultado de la ejecución.",
+              "test": "@log_funcion; def multiplicar(a, b): return a * b; resultado = multiplicar(4, 5); resultado == 20"
+            },
+            {
+              "enunciado": "Crea un decorador llamado 'validar_tipo' que valide que los argumentos de una función sean del tipo especificado.",
+              "test": "@validar_tipo(int, int); def suma_enteros(a, b): return a + b; suma_enteros(5, 3) == 8 and suma_enteros('5', 3) == 'Error: Tipo incorrecto'"
+            },
+            {
+              "enunciado": "Crea un decorador llamado 'limitar_llamadas' que limite el número de veces que se puede llamar una función.",
+              "test": "@limitar_llamadas(2); def funcion_limitada(): return 'llamada'; funcion_limitada() == 'llamada'; funcion_limitada() == 'llamada'; funcion_limitada() == 'Error: Límite de llamadas alcanzado'"
+            },
+            {
+              "enunciado": "Crea un decorador llamado 'convertir_resultado' que convierta el resultado de una función a un tipo específico.",
+              "test": "@convertir_resultado(str); def numero_a_texto(n): return n; numero_a_texto(42) == '42' and isinstance(numero_a_texto(42), str)"
+            },
+            {
+              "enunciado": "Crea un decorador llamado 'validar_rango' que valide que el resultado de una función esté dentro de un rango especificado.",
+              "test": "@validar_rango(0, 100); def porcentaje(valor): return valor; porcentaje(50) == 50 and porcentaje(150) == 'Error: Resultado fuera de rango'"
+            },
+            {
+              "enunciado": "Crea un decorador llamado 'ejecutar_condicional' que ejecute una función solo si se cumple una condición específica.",
+              "test": "condicion = True; @ejecutar_condicional(lambda: condicion); def funcion_condicional(): return 'ejecutada'; funcion_condicional() == 'ejecutada'"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nombre": "Módulo 4 - Programación Orientada a Objetos (POO)",
+      "descripcion": "Elementos básicos de POO, principios (herencia, polimorfismo, encapsulamiento), Magic Methods y práctica final con un juego de consola",
+      "temas": [
+        {
+          "nombre": "Clases y Objetos",
+          "teoria": "La Programación Orientada a Objetos (POO) organiza el código en clases que representan objetos del mundo real. Las clases tienen atributos y métodos.",
+          "ejercicios": [
+            {
+              "enunciado": "Crea una clase llamada 'Persona' con atributos 'nombre' y 'edad', y un método 'saludar' que retorne 'Hola, soy [nombre]'.",
+              "test": "p = Persona('Juan', 25); p.nombre == 'Juan' and p.edad == 25 and p.saludar() == 'Hola, soy Juan'"
+            },
+            {
+              "enunciado": "Crea una clase llamada 'Rectangulo' con atributos 'ancho' y 'alto', y un método 'area' que retorne el área del rectángulo.",
+              "test": "r = Rectangulo(5, 3); r.ancho == 5 and r.alto == 3 and r.area() == 15"
+            },
+            {
+              "enunciado": "Crea una clase llamada 'Estudiante' con atributos 'nombre', 'notas' (lista) y métodos 'agregar_nota' y 'promedio'.",
+              "test": "e = Estudiante('Ana'); e.agregar_nota(8); e.agregar_nota(9); e.promedio() == 8.5"
+            },
+            {
+              "enunciado": "Crea una clase llamada 'Circulo' con atributo 'radio' y métodos 'area' y 'perimetro' que calculen el área y perímetro del círculo.",
+              "test": "c = Circulo(3); abs(c.area() - 28.274) < 0.1 and abs(c.perimetro() - 18.85) < 0.1"
+            },
+            {
+              "enunciado": "Crea una clase llamada 'Libro' con atributos 'titulo', 'autor' y 'anio_publicacion', y un método 'informacion' que retorne un string con todos los datos.",
+              "test": "l = Libro('Python', 'Guido van Rossum', 1991); 'Python' in l.informacion() and '1991' in l.informacion()"
+            },
+            {
+              "enunciado": "Crea una clase llamada 'CuentaBancaria' con atributos 'titular', 'saldo' y métodos 'depositar', 'retirar' y 'consultar_saldo'.",
+              "test": "c = CuentaBancaria('Juan', 1000); c.depositar(500); c.retirar(200); c.consultar_saldo() == 1300"
+            },
+            {
+              "enunciado": "Crea una clase llamada 'Producto' con atributos 'nombre', 'precio', 'stock' y métodos 'actualizar_precio', 'vender' y 'reponer_stock'.",
+              "test": "p = Producto('Laptop', 1000, 5); p.vender(2); p.stock == 3 and p.reponer_stock(10); p.stock == 13"
+            },
+            {
+              "enunciado": "Crea una clase llamada 'Empleado' con atributos 'nombre', 'cargo', 'salario' y métodos 'aumentar_salario', 'cambiar_cargo' y 'mostrar_info'.",
+              "test": "e = Empleado('Ana', 'Desarrollador', 5000); e.aumentar_salario(10); e.salario == 5500 and 'Ana' in e.mostrar_info()"
+            },
+            {
+              "enunciado": "Crea una clase llamada 'Vehiculo' con atributos 'marca', 'modelo', 'anio', 'kilometraje' y métodos 'conducir', 'mantenimiento' y 'valor_actual'.",
+              "test": "v = Vehiculo('Toyota', 'Corolla', 2020, 50000); v.conducir(1000); v.kilometraje == 51000 and v.valor_actual() > 0"
+            },
+            {
+              "enunciado": "Crea una clase llamada 'Biblioteca' con atributos 'nombre', 'libros' (lista) y métodos 'agregar_libro', 'buscar_libro', 'prestar_libro' y 'devolver_libro'.",
+              "test": "b = Biblioteca('Central'); l = Libro('Python', 'Autor', 2020); b.agregar_libro(l); b.buscar_libro('Python') == l and len(b.libros) == 1"
+            }
+          ]
+        },
+        {
+          "nombre": "Herencia",
+          "teoria": "La herencia permite crear clases que heredan atributos y métodos de otras clases. Esto promueve la reutilización de código y la organización jerárquica.",
+          "ejercicios": [
+            {
+              "enunciado": "Crea una clase base llamada 'Animal' con atributo 'nombre' y método 'hacer_sonido'. Luego crea una clase 'Perro' que herede de 'Animal' y sobrescriba 'hacer_sonido' para retornar 'Guau'.",
+              "test": "p = Perro('Rex'); p.nombre == 'Rex' and p.hacer_sonido() == 'Guau'"
+            },
+            {
+              "enunciado": "Crea una clase base llamada 'Vehiculo' con atributos 'marca' y 'modelo'. Luego crea una clase 'Coche' que herede de 'Vehiculo' y agregue el atributo 'color'.",
+              "test": "c = Coche('Toyota', 'Corolla', 'rojo'); c.marca == 'Toyota' and c.color == 'rojo'"
+            },
+            {
+              "enunciado": "Crea una clase base llamada 'Empleado' con atributos 'nombre' y 'salario'. Luego crea una clase 'Gerente' que herede de 'Empleado' y agregue un método 'bonificacion' que retorne el 20% del salario.",
+              "test": "g = Gerente('María', 5000); g.nombre == 'María' and g.bonificacion() == 1000"
+            },
+            {
+              "enunciado": "Crea una clase base llamada 'Forma' con método 'area'. Luego crea clases 'Triangulo' y 'Rectangulo' que hereden de 'Forma' e implementen 'area' de manera diferente.",
+              "test": "t = Triangulo(3, 4); r = Rectangulo(5, 6); t.area() == 6 and r.area() == 30"
+            },
+            {
+              "enunciado": "Crea una clase base llamada 'Persona' con atributos 'nombre' y 'edad'. Luego crea clases 'Estudiante' y 'Profesor' que hereden de 'Persona' y agreguen atributos específicos.",
+              "test": "e = Estudiante('Juan', 20, 'Informática'); p = Profesor('Ana', 35, 'Matemáticas'); e.carrera == 'Informática' and p.materia == 'Matemáticas'"
+            },
+            {
+              "enunciado": "Crea una clase base llamada 'Cuenta' con atributos 'titular' y 'saldo'. Luego crea clases 'CuentaCorriente' y 'CuentaAhorro' que hereden de 'Cuenta' con diferentes comportamientos.",
+              "test": "cc = CuentaCorriente('Juan', 1000); ca = CuentaAhorro('Ana', 2000); cc.retirar(1500) == True and ca.retirar(1500) == False"
+            },
+            {
+              "enunciado": "Crea una clase base llamada 'Producto' con atributos 'nombre' y 'precio'. Luego crea clases 'ProductoFisico' y 'ProductoDigital' que hereden de 'Producto'.",
+              "test": "pf = ProductoFisico('Libro', 25, 0.5); pd = ProductoDigital('Ebook', 15, 'PDF'); pf.peso == 0.5 and pd.formato == 'PDF'"
+            },
+            {
+              "enunciado": "Crea una clase base llamada 'Instrumento' con método 'tocar'. Luego crea clases 'Guitarra', 'Piano' y 'Violin' que hereden de 'Instrumento'.",
+              "test": "g = Guitarra(6); p = Piano(88); v = Violin(); g.cuerdas == 6 and p.teclas == 88 and 'tocar' in dir(v)"
+            },
+            {
+              "enunciado": "Crea una clase base llamada 'Animal' con método 'mover'. Luego crea clases 'Ave', 'Pez' y 'Mamifero' que hereden de 'Animal' con diferentes formas de movimiento.",
+              "test": "a = Ave('Águila'); p = Pez('Salmón'); m = Mamifero('León'); 'volar' in a.mover() and 'nadar' in p.mover() and 'caminar' in m.mover()"
+            },
+            {
+              "enunciado": "Crea una clase base llamada 'Empleado' con método 'calcular_salario'. Luego crea clases 'EmpleadoTiempoCompleto', 'EmpleadoMedioTiempo' y 'EmpleadoPorHora' que hereden de 'Empleado'.",
+              "test": "etc = EmpleadoTiempoCompleto('Juan', 5000); emt = EmpleadoMedioTiempo('Ana', 2500); eph = EmpleadoPorHora('Carlos', 20); etc.calcular_salario() == 5000 and eph.calcular_salario(40) == 800"
+            }
+          ]
+        },
+        {
+          "nombre": "Polimorfismo",
+          "teoria": "El polimorfismo permite que diferentes clases respondan de manera diferente al mismo método. Esto se logra sobrescribiendo métodos en las clases hijas.",
+          "ejercicios": [
+            {
+              "enunciado": "Crea una clase base 'Forma' con método 'area'. Luego crea clases 'Circulo' y 'Cuadrado' que hereden de 'Forma' e implementen 'area' de manera diferente.",
+              "test": "c = Circulo(5); cu = Cuadrado(4); isinstance(c.area(), (int, float)) and isinstance(cu.area(), (int, float))"
+            },
+            {
+              "enunciado": "Crea una clase base 'Instrumento' con método 'tocar'. Luego crea clases 'Guitarra' y 'Piano' que hereden e implementen 'tocar' retornando diferentes sonidos.",
+              "test": "g = Guitarra(); p = Piano(); 'guitarra' in g.tocar().lower() and 'piano' in p.tocar().lower()"
+            },
+            {
+              "enunciado": "Crea una clase base 'Animal' con método 'hacer_sonido'. Luego crea clases 'Perro', 'Gato' y 'Pajaro' que implementen 'hacer_sonido' de manera diferente.",
+              "test": "p = Perro(); g = Gato(); pa = Pajaro(); 'guau' in p.hacer_sonido().lower() and 'miau' in g.hacer_sonido().lower() and 'pio' in pa.hacer_sonido().lower()"
+            },
+            {
+              "enunciado": "Crea una clase base 'Vehiculo' con método 'acelerar'. Luego crea clases 'Coche', 'Moto' y 'Bicicleta' que implementen 'acelerar' con diferentes velocidades.",
+              "test": "c = Coche(); m = Moto(); b = Bicicleta(); c.acelerar() > m.acelerar() and m.acelerar() > b.acelerar()"
+            },
+            {
+              "enunciado": "Crea una clase base 'Empleado' con método 'calcular_bonificacion'. Luego crea clases 'Vendedor', 'Gerente' y 'Desarrollador' que implementen diferentes bonificaciones.",
+              "test": "v = Vendedor(1000); g = Gerente(5000); d = Desarrollador(4000); v.calcular_bonificacion() > 0 and g.calcular_bonificacion() > v.calcular_bonificacion()"
+            },
+            {
+              "enunciado": "Crea una clase base 'Producto' con método 'calcular_precio_final'. Luego crea clases 'ProductoFisico', 'ProductoDigital' y 'Servicio' con diferentes cálculos.",
+              "test": "pf = ProductoFisico(100, 10); pd = ProductoDigital(50); s = Servicio(200, 0.15); pf.calcular_precio_final() > 100 and pd.calcular_precio_final() == 50"
+            },
+            {
+              "enunciado": "Crea una clase base 'Notificacion' con método 'enviar'. Luego crea clases 'Email', 'SMS' y 'Push' que implementen diferentes formas de envío.",
+              "test": "e = Email('usuario@test.com'); s = SMS('+1234567890'); p = Push('device_id'); 'email' in e.enviar().lower() and 'sms' in s.enviar().lower()"
+            },
+            {
+              "enunciado": "Crea una clase base 'Pago' con método 'procesar'. Luego crea clases 'PagoEfectivo', 'PagoTarjeta' y 'PagoTransferencia' con diferentes procesos.",
+              "test": "pe = PagoEfectivo(100); pt = PagoTarjeta(100, '1234-5678'); ptr = PagoTransferencia(100, 'ES91'); 'efectivo' in pe.procesar().lower() and 'tarjeta' in pt.procesar().lower()"
+            },
+            {
+              "enunciado": "Crea una clase base 'Compresion' con método 'comprimir'. Luego crea clases 'CompresionZIP', 'CompresionRAR' y 'Compresion7Z' con diferentes algoritmos.",
+              "test": "cz = CompresionZIP('archivo.txt'); cr = CompresionRAR('archivo.txt'); c7 = Compresion7Z('archivo.txt'); 'zip' in cz.comprimir().lower() and 'rar' in cr.comprimir().lower()"
+            },
+            {
+              "enunciado": "Crea una clase base 'Autenticacion' con método 'validar'. Luego crea clases 'AutenticacionUsuario', 'AutenticacionToken' y 'AutenticacionBiometrica' con diferentes validaciones.",
+              "test": "au = AutenticacionUsuario('admin', 'password'); at = AutenticacionToken('token123'); ab = AutenticacionBiometrica('huella'); au.validar() == True and at.validar() == True"
+            }
+          ]
+        },
+        {
+          "nombre": "Encapsulamiento",
+          "teoria": "El encapsulamiento protege los datos y métodos de una clase. En Python se usa convención de nombres: _atributo (protegido) y __atributo (privado).",
+          "ejercicios": [
+            {
+              "enunciado": "Crea una clase 'CuentaBancaria' con atributo privado '__saldo' y métodos públicos 'depositar' y 'obtener_saldo'.",
+              "test": "c = CuentaBancaria(1000); c.depositar(500); c.obtener_saldo() == 1500"
+            },
+            {
+              "enunciado": "Crea una clase 'Producto' con atributo protegido '_precio' y métodos 'cambiar_precio' y 'mostrar_precio'.",
+              "test": "p = Producto('Laptop', 1000); p.cambiar_precio(1200); p.mostrar_precio() == 1200"
+            },
+            {
+              "enunciado": "Crea una clase 'Estudiante' con atributos privados '__notas' y '__promedio', y métodos públicos para agregar notas y calcular promedio.",
+              "test": "e = Estudiante('Juan'); e.agregar_nota(8); e.agregar_nota(9); e.calcular_promedio() == 8.5"
+            },
+            {
+              "enunciado": "Crea una clase 'Empleado' con atributos protegidos '_salario' y '_bonificaciones', y métodos públicos para gestionar salarios.",
+              "test": "e = Empleado('Ana', 5000); e.aumentar_salario(10); e.agregar_bonificacion(500); e.obtener_salario_total() > 5000"
+            },
+            {
+              "enunciado": "Crea una clase 'Vehiculo' con atributos privados '__kilometraje' y '__mantenimientos', y métodos públicos para gestionar el estado del vehículo.",
+              "test": "v = Vehiculo('Toyota', 50000); v.conducir(1000); v.realizar_mantenimiento('Cambio de aceite'); v.obtener_estado() == 'Bueno'"
+            },
+            {
+              "enunciado": "Crea una clase 'Biblioteca' con atributos protegidos '_libros' y '_usuarios', y métodos públicos para gestionar préstamos.",
+              "test": "b = Biblioteca(); l = Libro('Python', 'Autor', 2020); b.agregar_libro(l); b.prestar_libro('Python', 'Juan'); b.obtener_libros_prestados() == 1"
+            },
+            {
+              "enunciado": "Crea una clase 'SistemaInventario' con atributos privados '__productos' y '__transacciones', y métodos públicos para gestionar inventario.",
+              "test": "si = SistemaInventario(); si.agregar_producto('Laptop', 10); si.vender_producto('Laptop', 3); si.obtener_stock('Laptop') == 7"
+            },
+            {
+              "enunciado": "Crea una clase 'SistemaAutenticacion' con atributos protegidos '_usuarios' y '_sesiones', y métodos públicos para gestionar autenticación.",
+              "test": "sa = SistemaAutenticacion(); sa.registrar_usuario('admin', 'password'); sa.iniciar_sesion('admin', 'password') == True"
+            },
+            {
+              "enunciado": "Crea una clase 'SistemaNotificaciones' con atributos privados '__configuracion' y '__historial', y métodos públicos para enviar notificaciones.",
+              "test": "sn = SistemaNotificaciones(); sn.configurar_canal('email', 'smtp.gmail.com'); sn.enviar_notificacion('Mensaje de prueba'); len(sn.obtener_historial()) > 0"
+            },
+            {
+              "enunciado": "Crea una clase 'SistemaLogs' con atributos protegidos '_nivel_log' y '_archivos_log', y métodos públicos para gestionar logs de aplicación.",
+              "test": "sl = SistemaLogs(); sl.configurar_nivel('INFO'); sl.registrar_log('INFO', 'Aplicación iniciada'); sl.obtener_logs_recientes() > 0"
+            }
+          ]
+        },
+        {
+          "nombre": "Magic Methods",
+          "teoria": "Los Magic Methods (métodos especiales) permiten definir cómo se comportan los objetos con operadores como +, -, ==, etc. Empiezan y terminan con doble guión bajo.",
+          "ejercicios": [
+            {
+              "enunciado": "Crea una clase llamada 'Punto' con atributos 'x' e 'y'. Implementa el método '__str__' para que retorne 'Punto(x, y)'.",
+              "test": "p = Punto(3, 4); str(p) == 'Punto(3, 4)'"
+            },
+            {
+              "enunciado": "Crea una clase llamada 'Fraccion' con atributos 'numerador' y 'denominador'. Implementa '__eq__' para comparar fracciones.",
+              "test": "f1 = Fraccion(1, 2); f2 = Fraccion(2, 4); f1 == f2"
+            },
+            {
+              "enunciado": "Crea una clase 'Vector' con atributos 'x' e 'y'. Implementa '__add__' para sumar vectores.",
+              "test": "v1 = Vector(1, 2); v2 = Vector(3, 4); v3 = v1 + v2; v3.x == 4 and v3.y == 6"
+            },
+            {
+              "enunciado": "Crea una clase 'Matriz' con atributos 'filas' y 'columnas'. Implementa '__mul__' para multiplicar matrices.",
+              "test": "m1 = Matriz([[1,2],[3,4]]); m2 = Matriz([[5,6],[7,8]]); m3 = m1 * m2; isinstance(m3, Matriz)"
+            },
+            {
+              "enunciado": "Crea una clase 'Complejo' con atributos 'real' e 'imaginario'. Implementa '__add__', '__sub__' y '__mul__' para operaciones con números complejos.",
+              "test": "c1 = Complejo(3, 4); c2 = Complejo(1, 2); c3 = c1 + c2; c3.real == 4 and c3.imaginario == 6"
+            },
+            {
+              "enunciado": "Crea una clase 'ListaPersonalizada' que herede de list. Implementa '__len__', '__getitem__' y '__setitem__' para comportamiento personalizado.",
+              "test": "lp = ListaPersonalizada([1,2,3]); len(lp) == 3 and lp[0] == 1 and lp[0] == 10; lp[0] == 10"
+            },
+            {
+              "enunciado": "Crea una clase 'DiccionarioPersonalizado' que herede de dict. Implementa '__getitem__', '__setitem__' y '__delitem__' con validaciones.",
+              "test": "dp = DiccionarioPersonalizado(); dp['clave'] = 'valor'; dp['clave'] == 'valor' and 'clave' in dp"
+            },
+            {
+              "enunciado": "Crea una clase 'ConjuntoPersonalizado' que herede de set. Implementa '__contains__', '__add__' y '__sub__' para operaciones de conjunto.",
+              "test": "cp1 = ConjuntoPersonalizado([1,2,3]); cp2 = ConjuntoPersonalizado([3,4,5]); cp3 = cp1 + cp2; len(cp3) == 5"
+            },
+            {
+              "enunciado": "Crea una clase 'IteradorPersonalizado' que implemente '__iter__' y '__next__' para crear un iterador que genere números pares.",
+              "test": "ip = IteradorPersonalizado(10); numeros = list(ip); numeros == [0,2,4,6,8]"
+            },
+            {
+              "enunciado": "Crea una clase 'ContextoPersonalizado' que implemente '__enter__' y '__exit__' para crear un context manager que mida el tiempo de ejecución.",
+              "test": "with ContextoPersonalizado() as cp: pass; isinstance(cp.tiempo_ejecucion, (int, float))"
+            }
+          ]
+        },
+        {
+          "nombre": "Juego de Consola",
+          "teoria": "Práctica final: Crea un juego simple de consola aplicando todos los conceptos de POO aprendidos. Usa clases, herencia, polimorfismo y encapsulamiento.",
+          "ejercicios": [
+            {
+              "enunciado": "Crea un juego simple de 'Adivina el Número'. Crea una clase 'Juego' con método 'jugar' que genere un número aleatorio entre 1 y 100 y permita al usuario adivinarlo.",
+              "test": "j = Juego(); isinstance(j, Juego) and hasattr(j, 'jugar')"
+            },
+            {
+              "enunciado": "Crea una clase 'Jugador' con atributos 'nombre' e 'intentos'. Luego crea una clase 'JuegoAdivinanza' que use 'Jugador' y tenga método 'iniciar_juego'.",
+              "test": "j = JuegoAdivinanza(); j.iniciar_juego('Juan'); j.jugador.nombre == 'Juan' and j.jugador.intentos == 0"
+            },
+            {
+              "enunciado": "Crea un juego de 'Piedra, Papel o Tijera'. Crea clases 'Jugador', 'JuegoPPT' y 'Ronda' que manejen la lógica del juego.",
+              "test": "j = JuegoPPT(); j.agregar_jugador('Juan'); j.agregar_jugador('Ana'); len(j.jugadores) == 2 and hasattr(j, 'jugar_ronda')"
+            },
+            {
+              "enunciado": "Crea un juego de 'Ahorcado'. Crea clases 'Palabra', 'JugadorAhorcado' y 'JuegoAhorcado' con métodos para gestionar el juego.",
+              "test": "j = JuegoAhorcado('PYTHON'); j.palabra.palabra == 'PYTHON' and j.intentos_restantes == 6 and hasattr(j, 'adivinar_letra')"
+            },
+            {
+              "enunciado": "Crea un juego de 'Tres en Raya'. Crea clases 'Tablero', 'JugadorTresEnRaya' y 'JuegoTresEnRaya' con lógica para el juego.",
+              "test": "j = JuegoTresEnRaya(); j.tablero.obtener_celda(0, 0) == ' ' and hasattr(j, 'hacer_movimiento') and hasattr(j, 'verificar_ganador')"
+            },
+            {
+              "enunciado": "Crea un juego de 'Memoria'. Crea clases 'Carta', 'TableroMemoria' y 'JuegoMemoria' para un juego de cartas de memoria.",
+              "test": "j = JuegoMemoria(4); len(j.tablero.cartas) == 16 and hasattr(j, 'voltear_carta') and hasattr(j, 'verificar_par')"
+            },
+            {
+              "enunciado": "Crea un juego de 'Snake'. Crea clases 'Serpiente', 'Comida' y 'JuegoSnake' para el clásico juego de la serpiente.",
+              "test": "j = JuegoSnake(10, 10); j.serpiente.posicion == [(5, 5)] and hasattr(j, 'mover') and hasattr(j, 'generar_comida')"
+            },
+            {
+              "enunciado": "Crea un juego de 'Tetris'. Crea clases 'Pieza', 'TableroTetris' y 'JuegoTetris' con diferentes tipos de piezas.",
+              "test": "j = JuegoTetris(10, 20); j.pieza_actual is not None and hasattr(j, 'rotar_pieza') and hasattr(j, 'mover_pieza')"
+            },
+            {
+              "enunciado": "Crea un juego de 'Batalla Naval'. Crea clases 'Barco', 'TableroBatalla' y 'JuegoBatallaNaval' para el juego de hundir barcos.",
+              "test": "j = JuegoBatallaNaval(); len(j.tablero.barcos) > 0 and hasattr(j, 'disparar') and hasattr(j, 'verificar_hundido')"
+            },
+            {
+              "enunciado": "Crea un juego de 'Laberinto'. Crea clases 'Laberinto', 'JugadorLaberinto' y 'JuegoLaberinto' para navegar por un laberinto.",
+              "test": "j = JuegoLaberinto(5, 5); j.laberinto.obtener_celda(0, 0) in ['#', ' '] and hasattr(j, 'mover_jugador') and hasattr(j, 'verificar_victoria')"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nombre": "Módulo 5 - Cierre del Curso",
+      "descripcion": "Despedida y evaluación integral de los conocimientos adquiridos en todo el curso de Python",
+      "temas": [
+        {
+          "nombre": "Evaluación de Estructuras de Datos",
+          "teoria": "Demuestra tu dominio de las estructuras de datos de Python: strings, listas, tuplas, conjuntos y diccionarios.",
+          "ejercicios": [
+            {
+              "enunciado": "Crea una función 'procesar_datos' que reciba una lista de nombres y retorne un diccionario con el nombre como clave y la longitud del nombre como valor.",
+              "test": "nombres = ['Ana', 'Juan', 'María']; resultado = procesar_datos(nombres); resultado == {'Ana': 3, 'Juan': 4, 'María': 5}"
+            },
+            {
+              "enunciado": "Crea una función 'filtrar_pares' que reciba una lista de números y retorne una tupla con solo los números pares.",
+              "test": "numeros = [1, 2, 3, 4, 5, 6]; resultado = filtrar_pares(numeros); resultado == (2, 4, 6)"
+            },
+            {
+              "enunciado": "Crea una función 'contar_vocales' que reciba un texto y retorne un diccionario con el conteo de cada vocal.",
+              "test": "texto = 'hola mundo'; resultado = contar_vocales(texto); resultado['o'] == 2 and resultado['a'] == 1"
+            }
+          ]
+        },
+        {
+          "nombre": "Evaluación de Funciones",
+          "teoria": "Demuestra tu comprensión de funciones, recursión, lambdas y manejo de excepciones.",
+          "ejercicios": [
+            {
+              "enunciado": "Crea una función recursiva 'invertir_lista' que reciba una lista y retorne la lista invertida.",
+              "test": "lista = [1, 2, 3, 4]; resultado = invertir_lista(lista); resultado == [4, 3, 2, 1]"
+            },
+            {
+              "enunciado": "Crea una función lambda 'es_palindromo' que reciba un texto y retorne True si es palíndromo, False en caso contrario.",
+              "test": "es_palindromo('ana') == True and es_palindromo('python') == False"
+            },
+            {
+              "enunciado": "Crea una función 'dividir_lista' que reciba una lista y un divisor, y retorne la división de cada elemento. Maneja la excepción de división por cero.",
+              "test": "lista = [10, 20, 30]; resultado = dividir_lista(lista, 2); resultado == [5.0, 10.0, 15.0]"
+            }
+          ]
+        },
+        {
+          "nombre": "Evaluación de POO",
+          "teoria": "Demuestra tu dominio de Programación Orientada a Objetos: clases, herencia, polimorfismo y encapsulamiento.",
+          "ejercicios": [
+            {
+              "enunciado": "Crea una clase 'Biblioteca' con lista de libros y métodos 'agregar_libro' y 'buscar_libro'. Luego crea una clase 'Libro' con atributos 'titulo' y 'autor'.",
+              "test": "b = Biblioteca(); l = Libro('Python', 'Autor'); b.agregar_libro(l); b.buscar_libro('Python') == l"
+            },
+            {
+              "enunciado": "Crea una clase base 'Figura' con método 'area'. Luego crea clases 'Triangulo' y 'Rectangulo' que hereden e implementen 'area'.",
+              "test": "t = Triangulo(3, 4); r = Rectangulo(5, 6); t.area() == 6 and r.area() == 30"
+            },
+            {
+              "enunciado": "Crea una clase 'Cuenta' con atributo privado '__saldo' y métodos 'depositar', 'retirar' y 'consultar_saldo'. Implementa validaciones.",
+              "test": "c = Cuenta(1000); c.depositar(500); c.retirar(200); c.consultar_saldo() == 1300"
+            }
+          ]
+        },
+        {
+          "nombre": "Proyecto Final Integrador",
+          "teoria": "Proyecto final que integra todos los conocimientos del curso: estructuras de datos, funciones, POO y manejo de excepciones.",
+          "ejercicios": [
+            {
+              "enunciado": "Crea un sistema de gestión de estudiantes. Crea una clase 'Estudiante' con nombre, notas y métodos para calcular promedio. Luego crea una clase 'SistemaEducativo' que maneje una lista de estudiantes.",
+              "test": "s = SistemaEducativo(); e = Estudiante('Juan'); e.agregar_nota(8); e.agregar_nota(9); s.agregar_estudiante(e); s.obtener_promedio_general() > 0"
+            },
+            {
+              "enunciado": "Crea una función 'generar_reporte' que reciba una lista de estudiantes y retorne un diccionario con estadísticas: total_estudiantes, promedio_general, mejor_estudiante.",
+              "test": "estudiantes = []; resultado = generar_reporte(estudiantes); 'total_estudiantes' in resultado and 'promedio_general' in resultado"
+            },
+            {
+              "enunciado": "Implementa manejo de excepciones en el sistema: validar que las notas estén entre 0 y 10, que los nombres no estén vacíos, y que no se dupliquen estudiantes.",
+              "test": "e = Estudiante('Ana'); try: e.agregar_nota(15); except: pass; e.notas == [] or max(e.notas) <= 10"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

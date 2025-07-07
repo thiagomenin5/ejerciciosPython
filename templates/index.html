@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicios de Python</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/monokai.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/python/python.min.js"></script>
+    <script src="/static/main.js?v=2.1" defer></script>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 20px; 
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .modulo-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            background: #fafafa;
+            transition: transform 0.2s;
+        }
+        .modulo-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .modulo-titulo {
+            color: #2c3e50;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .modulo-descripcion {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .temas-lista {
+            list-style: none;
+            padding: 0;
+        }
+        .tema-item {
+            background: white;
+            padding: 10px 15px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .tema-item:hover {
+            background-color: #ecf0f1;
+        }
+        .btn-modulo {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.2s;
+        }
+        .btn-modulo:hover {
+            background: #2980b9;
+        }
+        .oculto { display: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🐍 Plataforma de Ejercicios - Curso Digital House Python</h1>
+        <p style="color: #666; margin-bottom: 20px;">Practica todos los temas del curso con ejercicios interactivos y validación automática</p>
+        
+        <div id="modulos">
+            <h2>📚 Módulos del Curso:</h2>
+            {% for modulo in modulos %}
+            <div class="modulo-card">
+                <h3 class="modulo-titulo">{{ modulo.nombre }}</h3>
+                <p class="modulo-descripcion">{{ modulo.descripcion }}</p>
+                <h4>Temas incluidos:</h4>
+                <ul class="temas-lista">
+                    {% for tema in modulo.temas %}
+                    <li class="tema-item">{{ tema.nombre }}</li>
+                    {% endfor %}
+                </ul>
+                <button class="btn-modulo" onclick="abrirModulo({{ loop.index0 }})" type="button">
+                    🚀 Empezar Módulo {{ loop.index0 + 1 }}
+                </button>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <div id="contenido" class="oculto"></div>
+    </div>
+</body>
+</html> 
