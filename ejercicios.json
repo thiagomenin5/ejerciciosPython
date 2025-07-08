@@ -8,80 +8,230 @@
           "nombre": "Strings (Cadenas)",
           "teoria": "Los strings son secuencias de caracteres. Puedes concatenarlos, obtener su longitud, y usar métodos como upper(), lower(), split().",
           "ejercicios": [
-            {"enunciado": "Crea una variable llamada 'saludo' con el texto 'Hola'.", "test": "saludo == 'Hola'"},
-            {"enunciado": "Crea una variable llamada 'nombre' con tu nombre y concaténala con 'Hola' en una variable 'mensaje'.", "test": "mensaje == 'Hola ' + nombre"},
-            {"enunciado": "Crea una variable 'frase' con 'python es divertido' y obtén su longitud en 'longitud'.", "test": "frase == 'python es divertido' and longitud == len(frase)"},
-            {"enunciado": "Convierte la variable 'frase' a mayúsculas en 'frase_mayus'.", "test": "frase_mayus == frase.upper()"},
-            {"enunciado": "Crea una variable 'palabras' con 'uno,dos,tres' y divídela en una lista llamada 'lista_palabras'.", "test": "palabras == 'uno,dos,tres' and lista_palabras == palabras.split(',')"},
-            {"enunciado": "Reemplaza la palabra 'divertido' por 'genial' en la variable 'frase' y guarda el resultado en 'nueva_frase'.", "test": "nueva_frase == frase.replace('divertido', 'genial')"},
-            {"enunciado": "Verifica si la palabra 'python' está en la variable 'frase' y guarda el resultado booleano en 'contiene_python'.", "test": "contiene_python == ('python' in frase)"},
-            {"enunciado": "Crea una variable 'texto' con espacios al principio y al final. Elimina los espacios y guarda el resultado en 'texto_limpio'.", "test": "texto_limpio == texto.strip()"},
-            {"enunciado": "Crea una función 'contar_letra' que reciba un string y una letra, y retorne cuántas veces aparece esa letra.", "test": "contar_letra('banana', 'a') == 3"},
-            {"enunciado": "Crea una función 'es_palindromo' que reciba un string y retorne True si es palíndromo (se lee igual al derecho y al revés), False si no.", "test": "es_palindromo('reconocer') == True and es_palindromo('python') == False"}
+            {
+              "enunciado": "Crea una variable llamada 'saludo' y asígnale el texto 'Hola'. Recuerda que los textos en Python van entre comillas simples (') o dobles (\"). Para crear una variable, escribe el nombre de la variable, luego el signo igual (=) y finalmente el valor entre comillas. Por ejemplo: mi_variable = 'mi texto'.",
+              "test": "saludo == 'Hola'"
+            },
+            {
+              "enunciado": "Crea una variable llamada 'nombre' con tu nombre (por ejemplo 'Ana') y luego crea otra variable llamada 'mensaje' que contenga 'Hola ' seguido de tu nombre. Usa el operador + para unir (concatenar) los textos. La concatenación es cuando juntas dos o más textos. Por ejemplo: texto1 = 'Hola'; texto2 = 'Mundo'; resultado = texto1 + ' ' + texto2; # resultado será 'Hola Mundo'.",
+              "test": "mensaje == 'Hola ' + nombre"
+            },
+            {
+              "enunciado": "Crea una variable llamada 'frase' con el texto 'python es divertido' y luego crea otra variable llamada 'longitud' que contenga cuántos caracteres tiene esa frase. Usa la función len() para obtener la longitud. La función len() cuenta todos los caracteres en un texto, incluyendo espacios. Por ejemplo: len('hola') devuelve 4, len('hola mundo') devuelve 10 (incluyendo el espacio).",
+              "test": "frase == 'python es divertido' and longitud == len(frase)"
+            },
+            {
+              "enunciado": "Usando la variable 'frase' que creaste antes, crea una nueva variable llamada 'frase_mayus' que contenga la misma frase pero en mayúsculas. Usa el método .upper() para convertir a mayúsculas. Los métodos son funciones que se aplican a un texto usando un punto (.). Por ejemplo: texto = 'hola'; texto_mayus = texto.upper(); # texto_mayus será 'HOLA'.",
+              "test": "frase_mayus == frase.upper()"
+            },
+            {
+              "enunciado": "Crea una variable llamada 'palabras' con el texto 'uno,dos,tres' y luego crea una lista llamada 'lista_palabras' que contenga cada palabra separada. Usa el método .split(',') para dividir el texto por las comas. El método .split() divide un texto en una lista usando un separador. Por ejemplo: 'a,b,c'.split(',') devuelve ['a', 'b', 'c']. Las listas van entre corchetes [] y los elementos se separan con comas.",
+              "test": "palabras == 'uno,dos,tres' and lista_palabras == palabras.split(',')"
+            },
+            {
+              "enunciado": "Usando la variable 'frase' que creaste antes, crea una nueva variable llamada 'nueva_frase' donde hayas reemplazado la palabra 'divertido' por 'genial'. Usa el método .replace('palabra_vieja', 'palabra_nueva'). El método .replace() cambia una parte del texto por otra. Por ejemplo: 'hola mundo'.replace('mundo', 'amigo') devuelve 'hola amigo'. El texto original no se modifica, se crea uno nuevo.",
+              "test": "nueva_frase == frase.replace('divertido', 'genial')"
+            },
+            {
+              "enunciado": "Usando la variable 'frase' que creaste antes, crea una variable llamada 'contiene_python' que sea True si la palabra 'python' está en la frase, o False si no está. Usa el operador 'in' para verificar si una palabra está contenida en un texto. El operador 'in' devuelve True si encuentra la palabra en el texto, False si no la encuentra. Por ejemplo: 'hola' in 'hola mundo' devuelve True, 'adios' in 'hola mundo' devuelve False.",
+              "test": "contiene_python == ('python' in frase)"
+            },
+            {
+              "enunciado": "Crea una variable llamada 'texto' con el valor '  hola mundo  ' (con espacios al principio y al final). Luego crea una variable llamada 'texto_limpio' que contenga el mismo texto pero sin los espacios del principio y del final. Usa el método .strip() para eliminar espacios. El método .strip() elimina espacios en blanco al inicio y al final de un texto. Por ejemplo: '  hola  '.strip() devuelve 'hola'. Es útil para limpiar datos que vienen con espacios extra.",
+              "test": "texto_limpio == texto.strip()"
+            },
+            {
+              "enunciado": "Crea una función llamada 'contar_letra' que reciba dos parámetros: un texto (string) y una letra (string). La función debe devolver cuántas veces aparece esa letra en el texto. Por ejemplo, contar_letra('banana', 'a') debe devolver 3. Para crear una función usa 'def' seguido del nombre de la función y los parámetros entre paréntesis. Usa un bucle 'for' para recorrer cada letra del texto y un contador para llevar la cuenta. Recuerda usar 'return' para devolver el resultado.",
+              "test": "contar_letra('banana', 'a') == 3"
+            },
+            {
+              "enunciado": "Crea una función llamada 'es_palindromo' que reciba un texto (string) y devuelva True si es un palíndromo, o False si no lo es. Un palíndromo es una palabra que se lee igual al derecho y al revés (como 'reconocer', 'ana', 'oso'). La función debe ignorar mayúsculas y minúsculas. Para resolver esto: 1) Convierte el texto a minúsculas con .lower(), 2) Compara el texto original con el texto al revés usando [::-1] (esto invierte el texto), 3) Si son iguales, es un palíndromo.",
+              "test": "es_palindromo('reconocer') == True and es_palindromo('python') == False"
+            }
           ]
         },
         {
           "nombre": "Listas",
           "teoria": "Las listas son colecciones ordenadas y mutables. Puedes agregar, quitar, modificar elementos y usar métodos como append(), remove(), sort().",
           "ejercicios": [
-            {"enunciado": "Crea una lista llamada 'numeros' con los valores [1, 2, 3]", "test": "numeros == [1, 2, 3]"},
-            {"enunciado": "Agrega el número 4 al final de la lista 'numeros' usando append().", "test": "numeros[-1] == 4 and len(numeros) == 4"},
-            {"enunciado": "Elimina el primer elemento de la lista 'numeros' usando pop(0).", "test": "len(numeros) == 3 and 1 not in numeros"},
-            {"enunciado": "Crea una lista llamada 'frutas' con ['manzana', 'banana', 'naranja'] y elimina 'banana' de la lista.", "test": "frutas == ['manzana', 'naranja']"},
-            {"enunciado": "Crea una lista llamada 'temperaturas' con [25, 30, 15, 20] y ordénala de menor a mayor.", "test": "temperaturas == [15, 20, 25, 30]"},
-            {"enunciado": "Crea una lista llamada 'pares' con los números pares del 2 al 10 (inclusive) usando range().", "test": "pares == [2, 4, 6, 8, 10]"},
-            {"enunciado": "Crea una lista llamada 'cuadrados' con los cuadrados de los números del 1 al 5 usando comprensión de listas.", "test": "cuadrados == [1, 4, 9, 16, 25]"},
-            {"enunciado": "Crea una función 'sumar_lista' que reciba una lista de números y retorne la suma de sus elementos.", "test": "sumar_lista([1,2,3]) == 6 and sumar_lista([]) == 0"},
-            {"enunciado": "Crea una función 'invertir_lista' que reciba una lista y retorne la lista invertida.", "test": "invertir_lista([1,2,3]) == [3,2,1]"},
-            {"enunciado": "Crea una función 'eliminar_duplicados' que reciba una lista y retorne una nueva lista sin elementos duplicados (manteniendo el orden).", "test": "eliminar_duplicados([1,2,2,3,1,4]) == [1,2,3,4]"}
+            {
+              "enunciado": "Crea una lista llamada 'numeros' que contenga los valores 1, 2 y 3. Recuerda que las listas en Python van entre corchetes [] y los elementos se separan con comas. Las listas son colecciones ordenadas que pueden contener diferentes tipos de datos. Por ejemplo: mi_lista = [1, 'hola', 3.14, True]. En este caso, queremos una lista con solo números enteros.",
+              "test": "numeros == [1, 2, 3]"
+            },
+            {
+              "enunciado": "Usando la lista 'numeros' que creaste antes, agrega el número 4 al final de la lista. Usa el método .append() para agregar un elemento al final de una lista. El método .append() agrega un elemento al final de la lista. Por ejemplo: mi_lista = [1, 2]; mi_lista.append(3); # ahora mi_lista es [1, 2, 3]. El método modifica la lista original.",
+              "test": "numeros[-1] == 4 and len(numeros) == 4"
+            },
+            {
+              "enunciado": "Usando la lista 'numeros' que tienes, elimina el primer elemento (el que está en la posición 0) de la lista. Usa el método .pop(0) para eliminar y obtener el primer elemento. El método .pop(índice) elimina y devuelve el elemento en la posición especificada. Por ejemplo: mi_lista = [1, 2, 3]; elemento = mi_lista.pop(0); # elemento será 1, mi_lista será [2, 3]. En Python, las posiciones empiezan en 0.",
+              "test": "len(numeros) == 3 and 1 not in numeros"
+            },
+            {
+              "enunciado": "Crea una lista llamada 'frutas' con los valores 'manzana', 'banana' y 'naranja'. Luego elimina 'banana' de la lista usando el método .remove('elemento_a_eliminar'). El método .remove() elimina la primera aparición de un elemento específico de la lista. Por ejemplo: mi_lista = [1, 2, 2, 3]; mi_lista.remove(2); # mi_lista será [1, 2, 3] (solo elimina el primer 2).",
+              "test": "frutas == ['manzana', 'naranja']"
+            },
+            {
+              "enunciado": "Crea una lista llamada 'temperaturas' con los valores 25, 30, 15 y 20. Luego ordena la lista de menor a mayor usando el método .sort(). Este método modifica la lista original. El método .sort() ordena los elementos de la lista de menor a mayor. Por ejemplo: mi_lista = [3, 1, 4, 2]; mi_lista.sort(); # mi_lista será [1, 2, 3, 4]. El método no devuelve nada, solo modifica la lista.",
+              "test": "temperaturas == [15, 20, 25, 30]"
+            },
+            {
+              "enunciado": "Crea una lista llamada 'pares' que contenga todos los números pares del 2 al 10 (incluyendo el 10). Usa la función list() con range(2, 11, 2) para crear la secuencia de números pares. La función range(inicio, fin, paso) crea una secuencia de números. El tercer parámetro (paso) indica de cuánto en cuánto contar. Por ejemplo: list(range(0, 10, 2)) crea [0, 2, 4, 6, 8].",
+              "test": "pares == [2, 4, 6, 8, 10]"
+            },
+            {
+              "enunciado": "Crea una lista llamada 'cuadrados' que contenga los cuadrados de los números del 1 al 5. Usa comprensión de listas: [x**2 for x in range(1, 6)]. Esto significa: para cada número x del 1 al 5, calcula x al cuadrado. La comprensión de listas es una forma corta de crear listas. La sintaxis es [expresión for variable in secuencia]. Por ejemplo: [x*2 for x in [1,2,3]] crea [2, 4, 6]. El operador ** es para potencias: 2**3 = 8.",
+              "test": "cuadrados == [1, 4, 9, 16, 25]"
+            },
+            {
+              "enunciado": "Crea una función llamada 'sumar_lista' que reciba una lista de números como parámetro y devuelva la suma de todos sus elementos. Si la lista está vacía, debe devolver 0. Usa la función sum() para sumar los elementos. La función sum() suma todos los elementos de una lista de números. Por ejemplo: sum([1, 2, 3]) devuelve 6. También puedes usar un bucle 'for' para sumar manualmente: total = 0; for numero in lista: total += numero.",
+              "test": "sumar_lista([1,2,3]) == 6 and sumar_lista([]) == 0"
+            },
+            {
+              "enunciado": "Crea una función llamada 'invertir_lista' que reciba una lista como parámetro y devuelva una nueva lista con los elementos en orden inverso. Por ejemplo, si recibe [1,2,3], debe devolver [3,2,1]. Usa el método .reverse() o slicing [::-1]. El slicing [::-1] crea una copia invertida de la lista. Por ejemplo: [1,2,3][::-1] devuelve [3,2,1]. El método .reverse() modifica la lista original, pero puedes usar list(reversed(mi_lista)) para crear una nueva lista invertida.",
+              "test": "invertir_lista([1,2,3]) == [3,2,1]"
+            },
+            {
+              "enunciado": "Crea una función llamada 'eliminar_duplicados' que reciba una lista como parámetro y devuelva una nueva lista sin elementos duplicados, manteniendo el orden original. Por ejemplo, si recibe [1,2,2,3,1,4], debe devolver [1,2,3,4]. Puedes usar un bucle 'for' para recorrer la lista y agregar solo los elementos que no estén ya en la nueva lista. También puedes usar list(dict.fromkeys(mi_lista)) que es más eficiente, o convertir a conjunto y de vuelta a lista: list(set(mi_lista)), pero esto no mantiene el orden.",
+              "test": "eliminar_duplicados([1,2,2,3,1,4]) == [1,2,3,4]"
+            }
           ]
         },
         {
           "nombre": "Tuplas",
           "teoria": "Las tuplas son colecciones ordenadas e inmutables. Una vez creadas, no puedes modificar sus elementos. Se usan para datos que no cambian.",
           "ejercicios": [
-            {"enunciado": "Crea una tupla llamada 'coordenadas' con los valores (1, 2).", "test": "coordenadas == (1, 2) and isinstance(coordenadas, tuple)"},
-            {"enunciado": "Crea una tupla llamada 'colores' con ('rojo', 'verde', 'azul') y obtén el primer color en 'primer_color'.", "test": "colores == ('rojo', 'verde', 'azul') and primer_color == colores[0]"},
-            {"enunciado": "Crea una tupla llamada 'persona' con tu nombre y edad, y desempaqueta en 'nombre' y 'edad'.", "test": "isinstance(persona, tuple) and len(persona) == 2 and nombre == persona[0] and edad == persona[1]"},
-            {"enunciado": "Crea una tupla llamada 'numeros' con los valores del 1 al 5 usando tuple(range(...)).", "test": "numeros == (1, 2, 3, 4, 5)"},
-            {"enunciado": "Crea una función 'invertir_tupla' que reciba una tupla y retorne la tupla invertida.", "test": "invertir_tupla((1,2,3)) == (3,2,1)"},
-            {"enunciado": "Crea una función 'contar_elemento' que reciba una tupla y un elemento, y retorne cuántas veces aparece ese elemento.", "test": "contar_elemento((1,2,2,3),2) == 2"},
-            {"enunciado": "Crea una función 'concatenar_tuplas' que reciba dos tuplas y retorne una nueva tupla con todos los elementos.", "test": "concatenar_tuplas((1,2),(3,4)) == (1,2,3,4)"},
-            {"enunciado": "Crea una función 'maximo_tupla' que reciba una tupla de números y retorne el valor máximo.", "test": "maximo_tupla((1,5,3)) == 5"},
-            {"enunciado": "Crea una función 'buscar_indice' que reciba una tupla y un elemento, y retorne el índice de la primera aparición (o -1 si no está).", "test": "buscar_indice((1,2,3,2),2) == 1 and buscar_indice((1,2,3),5) == -1"},
-            {"enunciado": "Crea una función 'tupla_sin_duplicados' que reciba una tupla y retorne una nueva tupla sin elementos duplicados (manteniendo el orden).", "test": "tupla_sin_duplicados((1,2,2,3,1,4)) == (1,2,3,4)"}
+            {
+              "enunciado": "Crea una tupla llamada 'coordenadas' que contenga los valores 1 y 2. Recuerda que las tuplas en Python van entre paréntesis () y los elementos se separan con comas. Las tuplas son inmutables (no se pueden modificar después de crearlas). Las tuplas son como listas pero no se pueden cambiar. Por ejemplo: mi_tupla = (1, 2, 3). Una vez creada, no puedes agregar, eliminar o cambiar elementos.",
+              "test": "coordenadas == (1, 2) and isinstance(coordenadas, tuple)"
+            },
+            {
+              "enunciado": "Crea una tupla llamada 'colores' con los valores 'rojo', 'verde' y 'azul'. Luego crea una variable llamada 'primer_color' que contenga el primer elemento de la tupla (el que está en la posición 0). Usa índices para acceder a los elementos: tupla[0]. Los índices te permiten acceder a elementos específicos. En Python, las posiciones empiezan en 0. Por ejemplo: mi_tupla = (1, 2, 3); primer = mi_tupla[0]; # primer será 1.",
+              "test": "colores == ('rojo', 'verde', 'azul') and primer_color == colores[0]"
+            },
+            {
+              "enunciado": "Crea una tupla llamada 'persona' que contenga tu nombre (como string) y tu edad (como número). Luego desempaqueta la tupla en dos variables llamadas 'nombre' y 'edad'. El desempaquetado se hace así: nombre, edad = persona. El desempaquetado permite asignar cada elemento de una tupla a una variable diferente. Por ejemplo: mi_tupla = (1, 2); a, b = mi_tupla; # a será 1, b será 2. Es una forma rápida de extraer valores de una tupla.",
+              "test": "isinstance(persona, tuple) and len(persona) == 2 and nombre == persona[0] and edad == persona[1]"
+            },
+            {
+              "enunciado": "Crea una tupla llamada 'numeros' que contenga los valores del 1 al 5. Usa la función tuple() con range(1, 6) para crear la tupla. Esto convierte el rango de números en una tupla. La función tuple() convierte cualquier secuencia en una tupla. Por ejemplo: tuple([1, 2, 3]) devuelve (1, 2, 3). range(1, 6) crea una secuencia del 1 al 5 (el 6 no se incluye).",
+              "test": "numeros == (1, 2, 3, 4, 5)"
+            },
+            {
+              "enunciado": "Crea una función llamada 'invertir_tupla' que reciba una tupla como parámetro y devuelva una nueva tupla con los elementos en orden inverso. Por ejemplo, si recibe (1,2,3), debe devolver (3,2,1). Usa slicing [::-1] para invertir. El slicing [::-1] funciona igual que en las listas. Por ejemplo: (1,2,3)[::-1] devuelve (3,2,1). También puedes usar tuple(reversed(mi_tupla)) para crear una nueva tupla invertida.",
+              "test": "invertir_tupla((1,2,3)) == (3,2,1)"
+            },
+            {
+              "enunciado": "Crea una función llamada 'contar_elemento' que reciba una tupla y un elemento como parámetros, y devuelva cuántas veces aparece ese elemento en la tupla. Por ejemplo, contar_elemento((1,2,2,3), 2) debe devolver 2. Puedes usar el método .count() de las tuplas: mi_tupla.count(elemento). También puedes usar un bucle 'for' para contar manualmente: contador = 0; for item in tupla: if item == elemento: contador += 1.",
+              "test": "contar_elemento((1,2,2,3),2) == 2"
+            },
+            {
+              "enunciado": "Crea una función llamada 'concatenar_tuplas' que reciba dos tuplas como parámetros y devuelva una nueva tupla que contenga todos los elementos de ambas tuplas. Por ejemplo, concatenar_tuplas((1,2), (3,4)) debe devolver (1,2,3,4). Usa el operador + para concatenar tuplas. El operador + une dos tuplas en una sola. Por ejemplo: (1,2) + (3,4) devuelve (1,2,3,4). Es similar a concatenar strings o listas.",
+              "test": "concatenar_tuplas((1,2),(3,4)) == (1,2,3,4)"
+            },
+            {
+              "enunciado": "Crea una función llamada 'maximo_tupla' que reciba una tupla de números como parámetro y devuelva el valor máximo de la tupla. Por ejemplo, maximo_tupla((1,5,3)) debe devolver 5. Usa la función max() para encontrar el máximo. La función max() devuelve el valor más grande de una secuencia. Por ejemplo: max([1, 5, 3]) devuelve 5. También puedes usar un bucle 'for' para encontrar el máximo manualmente.",
+              "test": "maximo_tupla((1,5,3)) == 5"
+            },
+            {
+              "enunciado": "Crea una función llamada 'buscar_indice' que reciba una tupla y un elemento como parámetros, y devuelva el índice de la primera aparición de ese elemento en la tupla. Si el elemento no está en la tupla, debe devolver -1. Usa el método .index() o un bucle. El método .index() devuelve la posición de la primera aparición de un elemento. Por ejemplo: (1,2,3).index(2) devuelve 1. Si el elemento no existe, lanza un error, por eso necesitas manejar esa excepción o usar un bucle 'for' con enumerate().",
+              "test": "buscar_indice((1,2,3,2),2) == 1 and buscar_indice((1,2,3),5) == -1"
+            },
+            {
+              "enunciado": "Crea una función llamada 'tupla_sin_duplicados' que reciba una tupla como parámetro y devuelva una nueva tupla sin elementos duplicados, manteniendo el orden original. Por ejemplo, si recibe (1,2,2,3,1,4), debe devolver (1,2,3,4). Puedes usar un bucle 'for' para recorrer la tupla y agregar solo los elementos que no estén ya en la nueva tupla. También puedes convertir a conjunto y de vuelta a tupla: tuple(set(mi_tupla)), pero esto no mantiene el orden original.",
+              "test": "tupla_sin_duplicados((1,2,2,3,1,4)) == (1,2,3,4)"
+            }
           ]
         },
         {
           "nombre": "Conjuntos",
           "teoria": "Los conjuntos son colecciones no ordenadas de elementos únicos. No permiten duplicados y son útiles para operaciones de conjunto como unión, intersección.",
           "ejercicios": [
-            {"enunciado": "Crea un conjunto llamado 'vocales' con las letras 'a', 'e', 'i', 'o', 'u'.", "test": "vocales == {'a', 'e', 'i', 'o', 'u'} and isinstance(vocales, set)"},
-            {"enunciado": "Crea un conjunto llamado 'numeros' a partir de la lista [1, 2, 2, 3, 4, 4, 5].", "test": "numeros == {1,2,3,4,5}"},
-            {"enunciado": "Agrega el número 6 al conjunto 'numeros'.", "test": "6 in numeros"},
-            {"enunciado": "Elimina el número 2 del conjunto 'numeros'.", "test": "2 not in numeros"},
-            {"enunciado": "Crea dos conjuntos 'set1' y 'set2' y obtén su unión en 'union'.", "test": "union == set1.union(set2)"},
-            {"enunciado": "Obtén la intersección de 'set1' y 'set2' en 'interseccion'.", "test": "interseccion == set1.intersection(set2)"},
-            {"enunciado": "Crea una función 'diferencia_conjuntos' que reciba dos conjuntos y retorne la diferencia.", "test": "diferencia_conjuntos({1,2,3},{2,3}) == {1}"},
-            {"enunciado": "Crea una función 'es_subconjunto' que reciba dos conjuntos y retorne True si el primero es subconjunto del segundo.", "test": "es_subconjunto({1,2},{1,2,3}) == True and es_subconjunto({1,4},{1,2,3}) == False"},
-            {"enunciado": "Crea una función 'conjunto_sin_vocales' que reciba un string y retorne un conjunto con las letras que no son vocales.", "test": "conjunto_sin_vocales('hola') == set('hl')"},
-            {"enunciado": "Crea una función 'tamanio_conjunto' que reciba un conjunto y retorne su tamaño.", "test": "tamanio_conjunto({1,2,3}) == 3"}
+            {
+              "enunciado": "Crea un conjunto llamado 'vocales' que contenga las letras 'a', 'e', 'i', 'o' y 'u'. Recuerda que los conjuntos en Python van entre llaves {} y los elementos se separan con comas. Los conjuntos no permiten elementos duplicados. Los conjuntos son colecciones de elementos únicos. Por ejemplo: mi_conjunto = {1, 2, 3}. Si intentas agregar un elemento que ya existe, no se duplica. Los conjuntos no mantienen un orden específico.",
+              "test": "vocales == {'a', 'e', 'i', 'o', 'u'} and isinstance(vocales, set)"
+            },
+            {
+              "enunciado": "Crea un conjunto llamado 'numeros' a partir de la lista [1, 2, 2, 3, 4, 4, 5]. Usa la función set() para convertir la lista en un conjunto. Observa que los duplicados (2 y 4) se eliminan automáticamente. La función set() convierte cualquier secuencia en un conjunto, eliminando automáticamente los duplicados. Por ejemplo: set([1, 2, 2, 3]) devuelve {1, 2, 3}. Es una forma rápida de eliminar duplicados de una lista.",
+              "test": "numeros == {1,2,3,4,5}"
+            },
+            {
+              "enunciado": "Usando el conjunto 'numeros' que creaste antes, agrega el número 6 al conjunto. Usa el método .add() para agregar un elemento a un conjunto. El método .add() agrega un elemento al conjunto. Por ejemplo: mi_conjunto = {1, 2}; mi_conjunto.add(3); # ahora mi_conjunto es {1, 2, 3}. Si intentas agregar un elemento que ya existe, no pasa nada.",
+              "test": "6 in numeros"
+            },
+            {
+              "enunciado": "Usando el conjunto 'numeros' que tienes, elimina el número 2 del conjunto. Usa el método .remove() para eliminar un elemento de un conjunto. El método .remove() elimina un elemento específico del conjunto. Por ejemplo: mi_conjunto = {1, 2, 3}; mi_conjunto.remove(2); # ahora mi_conjunto es {1, 3}. Si el elemento no existe, lanza un error. También puedes usar .discard() que no lanza error si el elemento no existe.",
+              "test": "2 not in numeros"
+            },
+            {
+              "enunciado": "Crea dos conjuntos llamados 'set1' y 'set2' con algunos números. Luego crea una variable llamada 'union' que contenga la unión de ambos conjuntos (todos los elementos que están en cualquiera de los dos conjuntos). Usa el método .union(). La unión de dos conjuntos contiene todos los elementos que están en cualquiera de los dos conjuntos. Por ejemplo: {1,2}.union({2,3}) devuelve {1,2,3}. También puedes usar el operador |: set1 | set2.",
+              "test": "union == set1.union(set2)"
+            },
+            {
+              "enunciado": "Usando los conjuntos 'set1' y 'set2' que creaste antes, crea una variable llamada 'interseccion' que contenga la intersección de ambos conjuntos (solo los elementos que están en ambos conjuntos). Usa el método .intersection(). La intersección de dos conjuntos contiene solo los elementos que están en ambos conjuntos. Por ejemplo: {1,2,3}.intersection({2,3,4}) devuelve {2,3}. También puedes usar el operador &: set1 & set2.",
+              "test": "interseccion == set1.intersection(set2)"
+            },
+            {
+              "enunciado": "Crea una función llamada 'diferencia_conjuntos' que reciba dos conjuntos como parámetros y devuelva la diferencia entre el primer conjunto y el segundo (elementos que están en el primero pero no en el segundo). Por ejemplo, diferencia_conjuntos({1,2,3}, {2,3}) debe devolver {1}. La diferencia de conjuntos contiene elementos que están en el primer conjunto pero no en el segundo. Por ejemplo: {1,2,3}.difference({2,3}) devuelve {1}. También puedes usar el operador -: set1 - set2.",
+              "test": "diferencia_conjuntos({1,2,3},{2,3}) == {1}"
+            },
+            {
+              "enunciado": "Crea una función llamada 'es_subconjunto' que reciba dos conjuntos como parámetros y devuelva True si el primer conjunto es un subconjunto del segundo (todos los elementos del primero están en el segundo), o False si no lo es. Usa el método .issubset(). Un subconjunto es un conjunto cuyos elementos están todos contenidos en otro conjunto. Por ejemplo: {1,2}.issubset({1,2,3}) devuelve True, pero {1,4}.issubset({1,2,3}) devuelve False. También puedes usar el operador <=: set1 <= set2.",
+              "test": "es_subconjunto({1,2},{1,2,3}) == True and es_subconjunto({1,4},{1,2,3}) == False"
+            },
+            {
+              "enunciado": "Crea una función llamada 'conjunto_sin_vocales' que reciba un texto (string) como parámetro y devuelva un conjunto con todas las letras del texto que NO son vocales. Por ejemplo, conjunto_sin_vocales('hola') debe devolver {'h', 'l'}. Usa el operador 'in' para verificar si una letra es vocal. Primero crea un conjunto con las vocales: vocales = {'a', 'e', 'i', 'o', 'u'}. Luego recorre cada letra del texto y agrega al conjunto solo las que no están en vocales. Usa un bucle 'for' para recorrer el texto.",
+              "test": "conjunto_sin_vocales('hola') == set('hl')"
+            },
+            {
+              "enunciado": "Crea una función llamada 'tamanio_conjunto' que reciba un conjunto como parámetro y devuelva cuántos elementos tiene el conjunto. Por ejemplo, tamanio_conjunto({1,2,3}) debe devolver 3. Usa la función len() para obtener el tamaño. La función len() funciona igual con conjuntos que con listas y tuplas. Por ejemplo: len({1, 2, 3}) devuelve 3. También puedes usar un bucle 'for' para contar manualmente: contador = 0; for elemento in conjunto: contador += 1.",
+              "test": "tamanio_conjunto({1,2,3}) == 3"
+            }
           ]
         },
         {
           "nombre": "Diccionarios",
           "teoria": "Los diccionarios almacenan pares clave-valor. Son útiles para representar datos estructurados y permiten acceso rápido por clave.",
           "ejercicios": [
-            {"enunciado": "Crea un diccionario llamado 'persona' con las claves 'nombre' y 'edad'.", "test": "isinstance(persona, dict) and 'nombre' in persona and 'edad' in persona"},
-            {"enunciado": "Agrega la clave 'ciudad' con un valor a 'persona'.", "test": "'ciudad' in persona"},
-            {"enunciado": "Modifica el valor de 'edad' en el diccionario 'persona'.", "test": "persona['edad'] != None"},
-            {"enunciado": "Elimina la clave 'ciudad' del diccionario 'persona'.", "test": "'ciudad' not in persona"},
-            {"enunciado": "Crea una función 'obtener_claves' que reciba un diccionario y retorne una lista de sus claves.", "test": "set(obtener_claves({'a':1,'b':2})) == {'a','b'}"},
-            {"enunciado": "Crea una función 'obtener_valores' que reciba un diccionario y retorne una lista de sus valores.", "test": "set(obtener_valores({'a':1,'b':2})) == {1,2}"},
-            {"enunciado": "Crea una función 'invertir_diccionario' que reciba un diccionario y retorne uno nuevo con claves y valores invertidos.", "test": "invertir_diccionario({'a':1,'b':2}) == {1:'a',2:'b'}"},
-            {"enunciado": "Crea una función 'actualizar_diccionario' que reciba dos diccionarios y actualice el primero con el segundo.", "test": "d1={'a':1}; d2={'b':2}; actualizar_diccionario(d1,d2); d1['b']==2"},
-            {"enunciado": "Crea una función 'filtrar_diccionario' que reciba un diccionario y un valor, y retorne un nuevo diccionario solo con los pares cuyo valor sea mayor al valor dado.", "test": "filtrar_diccionario({'a':1,'b':3,'c':2},1) == {'b':3,'c':2}"},
-            {"enunciado": "Crea una función 'fusionar_diccionarios' que reciba dos diccionarios y retorne uno nuevo con todos los pares clave-valor (si hay claves repetidas, usa el valor del segundo diccionario).", "test": "fusionar_diccionarios({'a':1},{'a':2,'b':3}) == {'a':2,'b':3}"            }
+            {
+              "enunciado": "Crea un diccionario llamado 'persona' que contenga dos pares clave-valor: 'nombre' con un valor (por ejemplo 'Juan') y 'edad' con un número (por ejemplo 25). Recuerda que los diccionarios en Python van entre llaves {} y cada par clave-valor se separa con comas. Los diccionarios almacenan pares de clave-valor. La sintaxis es: {'clave1': valor1, 'clave2': valor2}. Por ejemplo: mi_dict = {'nombre': 'Ana', 'edad': 30}. Las claves deben ser únicas y pueden ser strings, números o tuplas.",
+              "test": "isinstance(persona, dict) and 'nombre' in persona and 'edad' in persona"
+            },
+            {
+              "enunciado": "Usando el diccionario 'persona' que creaste antes, agrega una nueva clave llamada 'ciudad' con un valor (por ejemplo 'Madrid'). Para agregar una nueva clave a un diccionario, simplemente asigna un valor: diccionario['nueva_clave'] = valor. Para agregar o modificar elementos en un diccionario, usa la sintaxis: diccionario[clave] = valor. Por ejemplo: mi_dict = {'a': 1}; mi_dict['b'] = 2; # ahora mi_dict es {'a': 1, 'b': 2}.",
+              "test": "'ciudad' in persona"
+            },
+            {
+              "enunciado": "Usando el diccionario 'persona' que tienes, modifica el valor de la clave 'edad' por un número diferente. Para modificar un valor en un diccionario, usa: diccionario['clave'] = nuevo_valor. Modificar un valor es igual que agregar uno nuevo. Si la clave ya existe, se actualiza el valor. Por ejemplo: mi_dict = {'edad': 25}; mi_dict['edad'] = 26; # ahora mi_dict es {'edad': 26}.",
+              "test": "persona['edad'] != None"
+            },
+            {
+              "enunciado": "Usando el diccionario 'persona' que tienes, elimina la clave 'ciudad' del diccionario. Usa el método .pop('clave') o la palabra clave 'del' para eliminar una clave: del diccionario['clave']. El método .pop() elimina la clave y devuelve su valor. Por ejemplo: mi_dict = {'a': 1, 'b': 2}; valor = mi_dict.pop('a'); # valor será 1, mi_dict será {'b': 2}. La palabra 'del' solo elimina: del mi_dict['a'].",
+              "test": "'ciudad' not in persona"
+            },
+            {
+              "enunciado": "Crea una función llamada 'obtener_claves' que reciba un diccionario como parámetro y devuelva una lista con todas las claves del diccionario. Por ejemplo, obtener_claves({'a':1, 'b':2}) debe devolver ['a', 'b']. Usa el método .keys() o la función list() con .keys(). El método .keys() devuelve un objeto con todas las claves del diccionario. Para convertirlo a lista, usa list(): list(mi_dict.keys()). Por ejemplo: {'a': 1, 'b': 2}.keys() devuelve dict_keys(['a', 'b']), y list({'a': 1, 'b': 2}.keys()) devuelve ['a', 'b'].",
+              "test": "set(obtener_claves({'a':1,'b':2})) == {'a','b'}"
+            },
+            {
+              "enunciado": "Crea una función llamada 'obtener_valores' que reciba un diccionario como parámetro y devuelva una lista con todos los valores del diccionario. Por ejemplo, obtener_valores({'a':1, 'b':2}) debe devolver [1, 2]. Usa el método .values() o la función list() con .values(). El método .values() devuelve un objeto con todos los valores del diccionario. Para convertirlo a lista, usa list(): list(mi_dict.values()). Por ejemplo: {'a': 1, 'b': 2}.values() devuelve dict_values([1, 2]), y list({'a': 1, 'b': 2}.values()) devuelve [1, 2].",
+              "test": "set(obtener_valores({'a':1,'b':2})) == {1,2}"
+            },
+            {
+              "enunciado": "Crea una función llamada 'invertir_diccionario' que reciba un diccionario como parámetro y devuelva un nuevo diccionario donde las claves y valores estén intercambiados. Por ejemplo, invertir_diccionario({'a':1, 'b':2}) debe devolver {1:'a', 2:'b'}. Ten en cuenta que esto solo funciona si todos los valores son únicos. Para invertir un diccionario, recorre todos los pares clave-valor y crea un nuevo diccionario donde la clave sea el valor original y el valor sea la clave original. Usa un bucle 'for' con .items(): for clave, valor in mi_dict.items():.",
+              "test": "invertir_diccionario({'a':1,'b':2}) == {1:'a',2:'b'}"
+            },
+            {
+              "enunciado": "Crea una función llamada 'actualizar_diccionario' que reciba dos diccionarios como parámetros y actualice el primer diccionario con todos los pares clave-valor del segundo diccionario. Usa el método .update() para actualizar un diccionario con otro. El método .update() agrega todos los pares clave-valor del segundo diccionario al primero. Si hay claves repetidas, se actualizan con los valores del segundo diccionario. Por ejemplo: d1 = {'a': 1}; d2 = {'b': 2}; d1.update(d2); # ahora d1 es {'a': 1, 'b': 2}.",
+              "test": "d1={'a':1}; d2={'b':2}; actualizar_diccionario(d1,d2); d1['b']==2"
+            },
+            {
+              "enunciado": "Crea una función llamada 'filtrar_diccionario' que reciba un diccionario y un número como parámetros, y devuelva un nuevo diccionario que contenga solo los pares clave-valor donde el valor sea mayor al número dado. Por ejemplo, filtrar_diccionario({'a':1, 'b':3, 'c':2}, 1) debe devolver {'b':3, 'c':2}. Para filtrar un diccionario, recorre todos los pares clave-valor y agrega solo los que cumplan la condición. Usa un bucle 'for' con .items(): for clave, valor in mi_dict.items(): if valor > numero: nuevo_dict[clave] = valor.",
+              "test": "filtrar_diccionario({'a':1,'b':3,'c':2},1) == {'b':3,'c':2}"
+            },
+            {
+              "enunciado": "Crea una función llamada 'fusionar_diccionarios' que reciba dos diccionarios como parámetros y devuelva un nuevo diccionario que contenga todos los pares clave-valor de ambos diccionarios. Si hay claves repetidas, debe usar el valor del segundo diccionario. Por ejemplo, fusionar_diccionarios({'a':1}, {'a':2, 'b':3}) debe devolver {'a':2, 'b':3}. Para fusionar diccionarios, puedes usar el método .update() o crear un nuevo diccionario y copiar todos los elementos. Primero copia el primer diccionario, luego actualiza con el segundo: nuevo_dict = dict(dict1); nuevo_dict.update(dict2).",
+              "test": "fusionar_diccionarios({'a':1},{'a':2,'b':3}) == {'a':2,'b':3}"
+            }
           ]
         },
         {
@@ -233,43 +383,43 @@
           "teoria": "Las funciones agrupan código reutilizable. Pueden recibir parámetros y devolver valores. Usa 'def' para definirlas.",
           "ejercicios": [
             {
-              "enunciado": "Crea una función llamada 'saludar' que reciba un parámetro 'nombre' y retorne 'Hola, [nombre]'.",
+              "enunciado": "Crea una función llamada 'saludar' que reciba un parámetro llamado 'nombre' y devuelva el texto 'Hola, ' seguido del nombre. Usa la palabra clave 'def' para definir la función y 'return' para devolver el resultado. Por ejemplo, saludar('Juan') debe devolver 'Hola, Juan'.",
               "test": "saludar('Juan') == 'Hola, Juan'"
             },
             {
-              "enunciado": "Crea una función llamada 'suma' que reciba dos parámetros y retorne su suma.",
+              "enunciado": "Crea una función llamada 'suma' que reciba dos parámetros (puedes llamarlos 'a' y 'b') y devuelva la suma de ambos números. Usa el operador + para sumar los parámetros. Por ejemplo, suma(5, 3) debe devolver 8.",
               "test": "suma(5, 3) == 8 and suma(10, 20) == 30"
             },
             {
-              "enunciado": "Crea una función llamada 'es_mayor_edad' que reciba una edad y retorne True si es mayor o igual a 18, False en caso contrario.",
+              "enunciado": "Crea una función llamada 'es_mayor_edad' que reciba un parámetro llamado 'edad' y devuelva True si la edad es mayor o igual a 18, o False si es menor a 18. Usa el operador >= para comparar. Por ejemplo, es_mayor_edad(20) debe devolver True.",
               "test": "es_mayor_edad(20) == True and es_mayor_edad(16) == False"
             },
             {
-              "enunciado": "Crea una función llamada 'calcular_area_rectangulo' que reciba base y altura, y retorne el área del rectángulo.",
+              "enunciado": "Crea una función llamada 'calcular_area_rectangulo' que reciba dos parámetros: 'base' y 'altura', y devuelva el área del rectángulo (base * altura). El área de un rectángulo se calcula multiplicando la base por la altura. Por ejemplo, calcular_area_rectangulo(5, 3) debe devolver 15.",
               "test": "calcular_area_rectangulo(5, 3) == 15 and calcular_area_rectangulo(10, 2) == 20"
             },
             {
-              "enunciado": "Crea una función llamada 'es_par' que reciba un número y retorne True si es par, False si es impar.",
+              "enunciado": "Crea una función llamada 'es_par' que reciba un número como parámetro y devuelva True si el número es par, o False si es impar. Un número es par si al dividirlo por 2 no queda resto (usa el operador % para obtener el resto). Por ejemplo, es_par(4) debe devolver True.",
               "test": "es_par(4) == True and es_par(7) == False and es_par(0) == True"
             },
             {
-              "enunciado": "Crea una función llamada 'obtener_maximo' que reciba tres números y retorne el mayor de ellos.",
+              "enunciado": "Crea una función llamada 'obtener_maximo' que reciba tres números como parámetros y devuelva el mayor de los tres. Puedes usar la función max() de Python o comparar los números uno por uno usando if/elif/else. Por ejemplo, obtener_maximo(1, 5, 3) debe devolver 5.",
               "test": "obtener_maximo(1, 5, 3) == 5 and obtener_maximo(10, 10, 5) == 10"
             },
             {
-              "enunciado": "Crea una función llamada 'calcular_promedio' que reciba una lista de números y retorne su promedio.",
+              "enunciado": "Crea una función llamada 'calcular_promedio' que reciba una lista de números como parámetro y devuelva el promedio (suma de todos los números dividido por la cantidad de números). Usa la función sum() para sumar la lista y len() para obtener la cantidad de elementos. Por ejemplo, calcular_promedio([1, 2, 3, 4, 5]) debe devolver 3.0.",
               "test": "calcular_promedio([1, 2, 3, 4, 5]) == 3.0 and calcular_promedio([10, 20]) == 15.0"
             },
             {
-              "enunciado": "Crea una función llamada 'contar_vocales' que reciba un string y retorne el número de vocales que contiene.",
+              "enunciado": "Crea una función llamada 'contar_vocales' que reciba un texto (string) como parámetro y devuelva cuántas vocales contiene (a, e, i, o, u, tanto en mayúsculas como en minúsculas). Puedes usar un bucle for para recorrer cada letra y verificar si es vocal usando 'in'. Por ejemplo, contar_vocales('hola') debe devolver 2.",
               "test": "contar_vocales('hola') == 2 and contar_vocales('python') == 1 and contar_vocales('aeiou') == 5"
             },
             {
-              "enunciado": "Crea una función llamada 'es_primo' que reciba un número y retorne True si es primo, False en caso contrario.",
+              "enunciado": "Crea una función llamada 'es_primo' que reciba un número como parámetro y devuelva True si el número es primo, o False si no lo es. Un número primo es aquel que solo es divisible por 1 y por sí mismo. Los números menores a 2 no son primos. Usa un bucle para verificar si el número es divisible por algún número entre 2 y la raíz cuadrada del número.",
               "test": "es_primo(2) == True and es_primo(7) == True and es_primo(4) == False and es_primo(1) == False"
             },
             {
-              "enunciado": "Crea una función llamada 'generar_fibonacci' que reciba un número n y retorne una lista con los primeros n números de la secuencia de Fibonacci.",
+              "enunciado": "Crea una función llamada 'generar_fibonacci' que reciba un número n como parámetro y devuelva una lista con los primeros n números de la secuencia de Fibonacci. La secuencia empieza con 0, 1 y cada número siguiente es la suma de los dos anteriores. Por ejemplo, generar_fibonacci(5) debe devolver [0, 1, 1, 2, 3].",
               "test": "generar_fibonacci(5) == [0, 1, 1, 2, 3] and generar_fibonacci(8) == [0, 1, 1, 2, 3, 5, 8, 13]"
             }
           ]
@@ -279,43 +429,43 @@
           "teoria": "La recursión es cuando una función se llama a sí misma. Es útil para problemas que se pueden dividir en subproblemas más pequeños.",
           "ejercicios": [
             {
-              "enunciado": "Crea una función recursiva llamada 'factorial' que calcule el factorial de un número n (n! = n * (n-1)!). El factorial de 0 es 1.",
+              "enunciado": "Crea una función recursiva llamada 'factorial' que calcule el factorial de un número n. El factorial de n (n!) es n multiplicado por el factorial de (n-1). El factorial de 0 es 1 (caso base). Por ejemplo: 5! = 5 * 4! = 5 * 4 * 3! = 5 * 4 * 3 * 2! = 5 * 4 * 3 * 2 * 1! = 5 * 4 * 3 * 2 * 1 = 120. Usa recursión: si n es 0, devuelve 1; si no, devuelve n * factorial(n-1).",
               "test": "factorial(5) == 120 and factorial(0) == 1"
             },
             {
-              "enunciado": "Crea una función recursiva llamada 'fibonacci' que calcule el n-ésimo número de Fibonacci (cada número es la suma de los dos anteriores).",
+              "enunciado": "Crea una función recursiva llamada 'fibonacci' que calcule el n-ésimo número de la secuencia de Fibonacci. La secuencia empieza con 0, 1 y cada número siguiente es la suma de los dos anteriores: 0, 1, 1, 2, 3, 5, 8, 13... Los casos base son: fibonacci(0) = 0 y fibonacci(1) = 1. Para n > 1, devuelve fibonacci(n-1) + fibonacci(n-2). Por ejemplo, fibonacci(6) debe devolver 8.",
               "test": "fibonacci(6) == 8 and fibonacci(0) == 0 and fibonacci(1) == 1"
             },
             {
-              "enunciado": "Crea una función recursiva llamada 'suma_digitos' que reciba un número y retorne la suma de sus dígitos.",
+              "enunciado": "Crea una función recursiva llamada 'suma_digitos' que reciba un número y devuelva la suma de todos sus dígitos. El caso base es cuando el número es menor a 10 (devuelve el número mismo). Para números mayores, toma el último dígito (usando % 10) y súmalo a la suma de los dígitos restantes (usando // 10). Por ejemplo, suma_digitos(123) = 3 + suma_digitos(12) = 3 + 2 + suma_digitos(1) = 3 + 2 + 1 = 6.",
               "test": "suma_digitos(123) == 6 and suma_digitos(999) == 27 and suma_digitos(0) == 0"
             },
             {
-              "enunciado": "Crea una función recursiva llamada 'invertir_numero' que reciba un número y retorne el número invertido.",
+              "enunciado": "Crea una función recursiva llamada 'invertir_numero' que reciba un número y devuelva el número con sus dígitos invertidos. El caso base es cuando el número es menor a 10 (devuelve el número mismo). Para números mayores, toma el último dígito, multiplica por 10 elevado a la cantidad de dígitos restantes, y súmalo al número invertido de los dígitos restantes. Por ejemplo, invertir_numero(123) debe devolver 321.",
               "test": "invertir_numero(123) == 321 and invertir_numero(1000) == 1 and invertir_numero(0) == 0"
             },
             {
-              "enunciado": "Crea una función recursiva llamada 'mcd' que calcule el máximo común divisor de dos números usando el algoritmo de Euclides.",
+              "enunciado": "Crea una función recursiva llamada 'mcd' que calcule el máximo común divisor de dos números usando el algoritmo de Euclides. El MCD de a y b es igual al MCD de b y el resto de dividir a entre b. El caso base es cuando b es 0, entonces el MCD es a. Por ejemplo, mcd(48, 18) = mcd(18, 12) = mcd(12, 6) = mcd(6, 0) = 6.",
               "test": "mcd(48, 18) == 6 and mcd(12, 8) == 4 and mcd(7, 13) == 1"
             },
             {
-              "enunciado": "Crea una función recursiva llamada 'potencia' que calcule x elevado a n (x^n).",
+              "enunciado": "Crea una función recursiva llamada 'potencia' que calcule x elevado a n (x^n). El caso base es cuando n es 0 (devuelve 1). Para n positivo, devuelve x * potencia(x, n-1). Para n negativo, devuelve 1 / potencia(x, -n). Por ejemplo, potencia(2, 3) debe devolver 8 (2 * 2 * 2).",
               "test": "potencia(2, 3) == 8 and potencia(5, 0) == 1 and potencia(3, 4) == 81"
             },
             {
-              "enunciado": "Crea una función recursiva llamada 'contar_ocurrencias' que reciba una lista y un elemento, y retorne cuántas veces aparece ese elemento.",
+              "enunciado": "Crea una función recursiva llamada 'contar_ocurrencias' que reciba una lista y un elemento, y devuelva cuántas veces aparece ese elemento en la lista. El caso base es cuando la lista está vacía (devuelve 0). Para una lista no vacía, verifica si el primer elemento es igual al buscado: si es igual, suma 1 al resultado de contar en el resto de la lista; si no, solo cuenta en el resto de la lista.",
               "test": "contar_ocurrencias([1,2,2,3,2], 2) == 3 and contar_ocurrencias([1,2,3], 5) == 0"
             },
             {
-              "enunciado": "Crea una función recursiva llamada 'es_palindromo' que reciba un string y retorne True si es palíndromo, False en caso contrario.",
+              "enunciado": "Crea una función recursiva llamada 'es_palindromo' que reciba un string y devuelva True si es palíndromo (se lee igual al derecho y al revés), o False si no lo es. Los casos base son: string vacío (True) y string de un carácter (True). Para strings más largos, compara el primer y último carácter: si son iguales, verifica recursivamente el string sin esos caracteres; si no son iguales, devuelve False.",
               "test": "es_palindromo('ana') == True and es_palindromo('python') == False and es_palindromo('') == True"
             },
             {
-              "enunciado": "Crea una función recursiva llamada 'generar_combinaciones' que reciba una lista y un número k, y retorne todas las combinaciones de k elementos de la lista.",
+              "enunciado": "Crea una función recursiva llamada 'generar_combinaciones' que reciba una lista y un número k, y devuelva todas las combinaciones de k elementos de la lista. El caso base es cuando k es 0 (devuelve [[]]) o cuando k es mayor que la longitud de la lista (devuelve []). Para otros casos, toma el primer elemento y genera combinaciones de k-1 elementos con el resto de la lista, luego agrega el primer elemento a cada combinación.",
               "test": "len(generar_combinaciones([1,2,3], 2)) == 3 and len(generar_combinaciones([1,2,3,4], 3)) == 4"
             },
             {
-              "enunciado": "Crea una función recursiva llamada 'torres_hanoi' que resuelva el problema de las Torres de Hanoi para n discos, retornando una lista de movimientos.",
+              "enunciado": "Crea una función recursiva llamada 'torres_hanoi' que resuelva el problema de las Torres de Hanoi para n discos. El problema consiste en mover n discos de una torre a otra usando una torre auxiliar, sin colocar un disco grande sobre uno pequeño. Para n discos: mueve n-1 discos a la torre auxiliar, mueve el disco más grande a la torre destino, y mueve los n-1 discos de la torre auxiliar a la torre destino. El caso base es n=1 (mover directamente).",
               "test": "movimientos = torres_hanoi(3); len(movimientos) == 7 and isinstance(movimientos, list)"
             }
           ]
@@ -325,43 +475,43 @@
           "teoria": "Las funciones lambda son funciones anónimas de una sola línea. Se usan para operaciones simples y como argumentos de otras funciones.",
           "ejercicios": [
             {
-              "enunciado": "Crea una función lambda llamada 'cuadrado' que reciba un número y retorne su cuadrado.",
+              "enunciado": "Crea una función lambda llamada 'cuadrado' que reciba un número y devuelva su cuadrado. Las funciones lambda se escriben así: lambda parametros: expresion. Por ejemplo: cuadrado = lambda x: x**2. Luego puedes usarla como cuadrado(5) para obtener 25.",
               "test": "cuadrado(5) == 25"
             },
             {
-              "enunciado": "Crea una función lambda llamada 'es_par' que reciba un número y retorne True si es par, False si es impar.",
+              "enunciado": "Crea una función lambda llamada 'es_par' que reciba un número y devuelva True si es par, o False si es impar. Usa el operador % para verificar si el número es par (si el resto de dividir por 2 es 0). Por ejemplo: es_par = lambda x: x % 2 == 0.",
               "test": "es_par(4) == True and es_par(7) == False"
             },
             {
-              "enunciado": "Crea una función lambda llamada 'multiplicar' que reciba dos números y retorne su producto.",
+              "enunciado": "Crea una función lambda llamada 'multiplicar' que reciba dos números y devuelva su producto. Las funciones lambda pueden recibir múltiples parámetros separados por comas. Por ejemplo: multiplicar = lambda a, b: a * b.",
               "test": "multiplicar(3, 4) == 12"
             },
             {
-              "enunciado": "Crea una función lambda llamada 'dividir' que reciba dos números y retorne su división.",
+              "enunciado": "Crea una función lambda llamada 'dividir' que reciba dos números y devuelva su división. Usa el operador / para la división. Ten en cuenta que la división en Python devuelve un número decimal (float). Por ejemplo: dividir = lambda a, b: a / b.",
               "test": "dividir(10, 2) == 5.0 and dividir(7, 2) == 3.5"
             },
             {
-              "enunciado": "Crea una función lambda llamada 'es_mayor_que' que reciba dos números y retorne True si el primero es mayor que el segundo.",
+              "enunciado": "Crea una función lambda llamada 'es_mayor_que' que reciba dos números y devuelva True si el primero es mayor que el segundo, o False en caso contrario. Usa el operador > para comparar. Por ejemplo: es_mayor_que = lambda a, b: a > b.",
               "test": "es_mayor_que(5, 3) == True and es_mayor_que(2, 8) == False"
             },
             {
-              "enunciado": "Crea una función lambda llamada 'longitud_string' que reciba un string y retorne su longitud.",
+              "enunciado": "Crea una función lambda llamada 'longitud_string' que reciba un string y devuelva su longitud. Usa la función len() para obtener la longitud de un string. Por ejemplo: longitud_string = lambda texto: len(texto).",
               "test": "longitud_string('hola') == 4 and longitud_string('python') == 6"
             },
             {
-              "enunciado": "Crea una función lambda llamada 'es_vocal' que reciba un carácter y retorne True si es vocal, False en caso contrario.",
+              "enunciado": "Crea una función lambda llamada 'es_vocal' que reciba un carácter y devuelva True si es vocal (a, e, i, o, u), o False en caso contrario. Usa el operador 'in' para verificar si el carácter está en la cadena de vocales. Considera tanto mayúsculas como minúsculas usando .lower().",
               "test": "es_vocal('a') == True and es_vocal('b') == False and es_vocal('E') == True"
             },
             {
-              "enunciado": "Crea una función lambda llamada 'concatenar' que reciba dos strings y retorne su concatenación.",
+              "enunciado": "Crea una función lambda llamada 'concatenar' que reciba dos strings y devuelva su concatenación (unión). Usa el operador + para concatenar strings. Por ejemplo: concatenar = lambda str1, str2: str1 + str2.",
               "test": "concatenar('hola', 'mundo') == 'holamundo' and concatenar('python', '3') == 'python3'"
             },
             {
-              "enunciado": "Crea una función lambda llamada 'es_positivo' que reciba un número y retorne True si es positivo, False si es negativo o cero.",
+              "enunciado": "Crea una función lambda llamada 'es_positivo' que reciba un número y devuelva True si es positivo (mayor que 0), o False si es negativo o cero. Usa el operador > para verificar si el número es mayor que 0. Por ejemplo: es_positivo = lambda x: x > 0.",
               "test": "es_positivo(5) == True and es_positivo(-3) == False and es_positivo(0) == False"
             },
             {
-              "enunciado": "Crea una función lambda llamada 'calcular_area_circulo' que reciba el radio y retorne el área del círculo (π * r²). Usa 3.14159 como aproximación de π.",
+              "enunciado": "Crea una función lambda llamada 'calcular_area_circulo' que reciba el radio y devuelva el área del círculo. El área de un círculo se calcula con la fórmula π * r². Usa 3.14159 como aproximación de π y el operador ** para elevar al cuadrado. Por ejemplo: calcular_area_circulo = lambda radio: 3.14159 * radio**2.",
               "test": "abs(calcular_area_circulo(1) - 3.14159) < 0.01 and abs(calcular_area_circulo(2) - 12.56636) < 0.01"
             }
           ]
@@ -371,43 +521,43 @@
           "teoria": "El manejo de excepciones permite controlar errores en tiempo de ejecución. Usa try/except para capturar y manejar errores.",
           "ejercicios": [
             {
-              "enunciado": "Crea una función llamada 'dividir_seguro' que reciba dos números y retorne su división. Si hay división por cero, retorna 'Error: División por cero'.",
+              "enunciado": "Crea una función llamada 'dividir_seguro' que reciba dos números y devuelva su división. Si hay división por cero (cuando el segundo número es 0), debe devolver el texto 'Error: División por cero'. Usa try/except para capturar la excepción ZeroDivisionError. Por ejemplo: try: resultado = a / b; except ZeroDivisionError: resultado = 'Error: División por cero'.",
               "test": "dividir_seguro(10, 2) == 5.0 and dividir_seguro(10, 0) == 'Error: División por cero'"
             },
             {
-              "enunciado": "Crea una función llamada 'convertir_a_entero' que reciba un texto y retorne el número entero. Si no se puede convertir, retorna 'Error: No es un número válido'.",
+              "enunciado": "Crea una función llamada 'convertir_a_entero' que reciba un texto y devuelva el número entero correspondiente. Si el texto no se puede convertir a entero (por ejemplo, si contiene letras), debe devolver 'Error: No es un número válido'. Usa try/except para capturar la excepción ValueError. Por ejemplo: try: numero = int(texto); except ValueError: numero = 'Error: No es un número válido'.",
               "test": "convertir_a_entero('123') == 123 and convertir_a_entero('abc') == 'Error: No es un número válido'"
             },
             {
-              "enunciado": "Crea una función llamada 'acceder_lista' que reciba una lista y un índice, y retorne el elemento en esa posición. Si el índice no existe, retorna 'Error: Índice fuera de rango'.",
+              "enunciado": "Crea una función llamada 'acceder_lista' que reciba una lista y un índice, y devuelva el elemento en esa posición. Si el índice no existe (es muy grande o negativo), debe devolver 'Error: Índice fuera de rango'. Usa try/except para capturar la excepción IndexError. Por ejemplo: try: elemento = lista[indice]; except IndexError: elemento = 'Error: Índice fuera de rango'.",
               "test": "acceder_lista([1,2,3], 1) == 2 and acceder_lista([1,2,3], 5) == 'Error: Índice fuera de rango'"
             },
             {
-              "enunciado": "Crea una función llamada 'convertir_a_float' que reciba un texto y retorne el número decimal. Si no se puede convertir, retorna 'Error: No es un número decimal válido'.",
+              "enunciado": "Crea una función llamada 'convertir_a_float' que reciba un texto y devuelva el número decimal correspondiente. Si el texto no se puede convertir a decimal (por ejemplo, si contiene letras), debe devolver 'Error: No es un número decimal válido'. Usa try/except para capturar la excepción ValueError. Por ejemplo: try: numero = float(texto); except ValueError: numero = 'Error: No es un número decimal válido'.",
               "test": "convertir_a_float('3.14') == 3.14 and convertir_a_float('abc') == 'Error: No es un número decimal válido'"
             },
             {
-              "enunciado": "Crea una función llamada 'abrir_archivo' que reciba un nombre de archivo y retorne su contenido. Si el archivo no existe, retorna 'Error: Archivo no encontrado'.",
+              "enunciado": "Crea una función llamada 'abrir_archivo' que reciba un nombre de archivo y devuelva su contenido. Si el archivo no existe, debe devolver 'Error: Archivo no encontrado'. Usa try/except para capturar la excepción FileNotFoundError. Por ejemplo: try: with open(nombre_archivo, 'r') as f: contenido = f.read(); except FileNotFoundError: contenido = 'Error: Archivo no encontrado'.",
               "test": "abrir_archivo('archivo_inexistente.txt') == 'Error: Archivo no encontrado'"
             },
             {
-              "enunciado": "Crea una función llamada 'calcular_raiz' que reciba un número y retorne su raíz cuadrada. Si el número es negativo, retorna 'Error: No se puede calcular raíz de número negativo'.",
+              "enunciado": "Crea una función llamada 'calcular_raiz' que reciba un número y devuelva su raíz cuadrada. Si el número es negativo, debe devolver 'Error: No se puede calcular raíz de número negativo'. Usa la función math.sqrt() o el operador ** 0.5, y maneja el caso de números negativos con una condición if antes de calcular la raíz.",
               "test": "calcular_raiz(4) == 2.0 and calcular_raiz(-1) == 'Error: No se puede calcular raíz de número negativo'"
             },
             {
-              "enunciado": "Crea una función llamada 'acceder_diccionario' que reciba un diccionario y una clave, y retorne el valor. Si la clave no existe, retorna 'Error: Clave no encontrada'.",
+              "enunciado": "Crea una función llamada 'acceder_diccionario' que reciba un diccionario y una clave, y devuelva el valor correspondiente. Si la clave no existe en el diccionario, debe devolver 'Error: Clave no encontrada'. Usa try/except para capturar la excepción KeyError, o usa el método .get() del diccionario con un valor por defecto.",
               "test": "acceder_diccionario({'a':1,'b':2}, 'a') == 1 and acceder_diccionario({'a':1}, 'c') == 'Error: Clave no encontrada'"
             },
             {
-              "enunciado": "Crea una función llamada 'convertir_lista' que reciba un texto y retorne una lista. Si el texto no representa una lista válida, retorna 'Error: Formato de lista inválido'.",
+              "enunciado": "Crea una función llamada 'convertir_lista' que reciba un texto que representa una lista (por ejemplo '[1,2,3]') y devuelva la lista correspondiente. Si el texto no representa una lista válida, debe devolver 'Error: Formato de lista inválido'. Usa try/except para capturar la excepción que se produce al evaluar el texto con eval(). Ten cuidado: eval() puede ser peligroso en aplicaciones reales.",
               "test": "convertir_lista('[1,2,3]') == [1,2,3] and convertir_lista('texto') == 'Error: Formato de lista inválido'"
             },
             {
-              "enunciado": "Crea una función llamada 'validar_edad' que reciba una edad y retorne True si es válida (entre 0 y 120), False en caso contrario. Maneja excepciones si la entrada no es un número.",
+              "enunciado": "Crea una función llamada 'validar_edad' que reciba una edad y devuelva True si es válida (entre 0 y 120), o False en caso contrario. Si la entrada no es un número, debe devolver False. Usa try/except para manejar el caso donde la entrada no se puede convertir a número, y luego verifica si está en el rango válido.",
               "test": "validar_edad(25) == True and validar_edad(150) == False and validar_edad('abc') == False"
             },
             {
-              "enunciado": "Crea una función llamada 'procesar_datos' que reciba una lista de datos y retorne la suma de todos los números. Si algún elemento no es número, lo ignora y continúa procesando.",
+              "enunciado": "Crea una función llamada 'procesar_datos' que reciba una lista de datos y devuelva la suma de todos los números en la lista. Si algún elemento no es un número, debe ignorarlo y continuar procesando los demás elementos. Usa try/except dentro de un bucle para manejar cada elemento individualmente.",
               "test": "procesar_datos([1,2,'a',3,4]) == 10 and procesar_datos(['a','b','c']) == 0"
             }
           ]

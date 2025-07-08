@@ -425,6 +425,14 @@ document.addEventListener('DOMContentLoaded', function() {
     function renderTema(tema, moduloId, temaId) {
         contenido.classList.remove('oculto');
         
+        // Limpiar editores anteriores
+        editores.forEach(editor => {
+            if (editor && editor.toTextArea) {
+                editor.toTextArea();
+            }
+        });
+        editores = [];
+        
         let html = `
             <h2>📚 ${tema.nombre}</h2>
             <div style="margin-bottom: 20px;">
@@ -461,7 +469,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div style="margin: 15px 0;">
                         <textarea id="codigo${i}"></textarea>
                     </div>
-                    <button onclick="verificarEjercicio(${moduloId}, ${temaId}, ${i})" style="margin: 10px 5px 10px 0; padding: 8px 16px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer;">✅ Verificar</button>
+                    <button id="btn-verificar-${i}" onclick="verificarEjercicio(${moduloId}, ${temaId}, ${i})" style="margin: 10px 5px 10px 0; padding: 8px 16px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer;">✅ Verificar</button>
                     <button onclick="limpiarEditor(${i})" style="margin: 10px 5px 10px 0; padding: 8px 16px; background: #6c757d; color: white; border: none; border-radius: 4px; cursor: pointer;">🗑️ Limpiar</button>
                     <div id="resultado${i}"></div>
                 </div>
@@ -470,46 +478,111 @@ document.addEventListener('DOMContentLoaded', function() {
         
         contenido.innerHTML = html;
 
-        // Inicializar editores CodeMirror
+        // Inicializar editores CodeMirror después de que el DOM esté listo
         setTimeout(() => {
             tema.ejercicios.forEach((ej, i) => {
                 const textarea = document.getElementById('codigo'+i);
-                const editor = CodeMirror.fromTextArea(textarea, {
-                    mode: 'python',
-                    theme: 'monokai',
-                    lineNumbers: true,
-                    indentUnit: 4,
-                    tabSize: 4,
-                    lineWrapping: true,
-                    extraKeys: {
-                        "Tab": function(cm) {
-                            cm.replaceSelection("    ", "end");
-                        }
+                if (textarea) {
+                    try {
+                        const editor = CodeMirror.fromTextArea(textarea, {
+                            mode: 'python',
+                            theme: 'monokai',
+                            lineNumbers: true,
+                            indentUnit: 4,
+                            tabSize: 4,
+                            lineWrapping: true,
+                            autoCloseBrackets: true,
+                            matchBrackets: true,
+                            extraKeys: {
+                                "Tab": function(cm) {
+                                    cm.replaceSelection("    ", "end");
+                                },
+                                "Enter": function(cm) {
+                                    cm.replaceSelection("\n", "end");
+                                }
+                            }
+                        });
+                        editores[i] = editor;
+                        console.log(`Editor ${i} inicializado correctamente con CodeMirror`);
+                    } catch (error) {
+                        console.error(`Error inicializando CodeMirror para editor ${i}:`, error);
+                        // Fallback a textarea normal si CodeMirror falla
+                        editores[i] = null;
                     }
-                });
-                editores.push(editor);
+                } else {
+                    console.error(`No se encontró el textarea con id 'codigo${i}'`);
+                    editores[i] = null;
+                }
             });
         }, 100);
     }
 
+    let verificando = false; // Variable para evitar múltiples peticiones simultáneas
+    
     window.verificarEjercicio = function(moduloId, temaId, indiceEj) {
+        if (verificando) {
+            console.log('Ya hay una verificación en curso, espera...');
+            return;
+        }
+        
+        verificando = true;
+        console.log(`Verificando ejercicio: módulo ${moduloId}, tema ${temaId}, ejercicio ${indiceEj}`);
+        
         fetch('/ejercicios.json').then(r => r.json()).then(json => {
             const modulo = json.modulos[moduloId];
             const tema = modulo.temas[temaId];
             const ejercicio = tema.ejercicios[indiceEj];
+            // Obtener el código del editor o textarea
+            let codigo = '';
             const editor = editores[indiceEj];
-            const codigo = editor.getValue();
+            
+            if (editor && editor.getValue) {
+                // Usar CodeMirror si está disponible
+                codigo = editor.getValue();
+                console.log('Código obtenido de CodeMirror:', codigo);
+            } else {
+                // Fallback a textarea normal
+                const textarea = document.getElementById('codigo'+indiceEj);
+                if (textarea) {
+                    codigo = textarea.value;
+                    console.log('Código obtenido del textarea:', codigo);
+                } else {
+                    verificando = false;
+                    const resultado = document.getElementById('resultado'+indiceEj);
+                    resultado.innerHTML = '❌ <span style="color: #dc3545; font-weight: bold;">Error: No se encontró el editor. Recarga la página.</span>';
+                    return;
+                }
+            }
+            
+            console.log('Longitud del código:', codigo.length);
+            console.log('Test a ejecutar:', ejercicio.test);
+            
+            // Verificar que el código no esté vacío
+            if (!codigo || codigo.trim() === '') {
+                verificando = false;
+                const resultado = document.getElementById('resultado'+indiceEj);
+                resultado.innerHTML = '❌ <span style="color: #dc3545; font-weight: bold;">Por favor, escribe tu código antes de verificar.</span>';
+                return;
+            }
             
             const resultado = document.getElementById('resultado'+indiceEj);
             resultado.innerHTML = '<em>Verificando...</em>';
             
-            fetch('/verificar', {
+            const datos = {codigo: codigo, test: ejercicio.test};
+            console.log('Enviando datos:', datos);
+            
+            fetch('/', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({codigo: codigo, test: ejercicio.test})
+                body: JSON.stringify(datos)
             })
-            .then(r => r.json())
+            .then(r => {
+                console.log('Respuesta recibida:', r.status);
+                return r.json();
+            })
             .then(res => {
+                console.log('Resultado:', res);
+                verificando = false;
                 if(res.ok) {
                     resultado.innerHTML = '✅ <span style="color: #28a745; font-weight: bold;">¡Correcto! Tu código funciona perfectamente.</span>';
                 } else {
@@ -517,23 +590,39 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             })
             .catch(err => {
+                console.error('Error en la petición:', err);
+                verificando = false;
                 resultado.innerHTML = '❌ <span style="color: #dc3545; font-weight: bold;">Error de conexión. Intenta de nuevo.</span>';
             });
+        }).catch(err => {
+            console.error('Error cargando ejercicios:', err);
+            verificando = false;
         });
     }
 
     window.limpiarEditor = function(indiceEj) {
         const editor = editores[indiceEj];
-        editor.setValue('');
+        if (editor && editor.setValue) {
+            // Usar CodeMirror si está disponible
+            editor.setValue('');
+        } else {
+            // Fallback a textarea normal
+            const textarea = document.getElementById('codigo'+indiceEj);
+            if (textarea) {
+                textarea.value = '';
+            }
+        }
         document.getElementById('resultado'+indiceEj).innerHTML = '';
     }
 
     window.volverAModulos = function() {
         contenido.classList.add('oculto');
         modulosDiv.classList.remove('oculto');
-        // Limpiar editores
+        // Limpiar editores CodeMirror
         editores.forEach(editor => {
-            if (editor) editor.toTextArea();
+            if (editor && editor.toTextArea) {
+                editor.toTextArea();
+            }
         });
         editores = [];
         moduloActual = null;
